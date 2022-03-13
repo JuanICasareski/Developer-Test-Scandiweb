@@ -16,21 +16,6 @@
 $width: 1440;
 $height: 745;
 
-[type=radio] { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-[type=radio] + img {
-cursor: pointer;
-}
-
-
-[type=radio]:checked + img {
-outline: 2px solid #A6A6A6;
-}
 
 .noScrollBar::-webkit-scrollbar {
   display: none;
@@ -40,42 +25,6 @@ outline: 2px solid #A6A6A6;
   display: flex;
   justify-content: center;
 }
-
-
-.attributeButton {
-  background-color: #FFFFFF;
-  border: 1px solid #292929;
-  box-sizing: border-box;
-
-  display: inline-block;
-
-  padding: 10px 23px;
-  position: relative;
-
-  text-align: center;
-  touch-action: manipulation;
-  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  color: #292929; 
-}
-
-.attributeButton:active {
-  background-color: #F7F7F7;
-  border-color: #000000;
-  transform: scale(.96);
-  color: #292929;
-}
-
-
-[type=radio] + button {
-  cursor: pointer;
-}
-
 
 .productSubtitle {
   font-family: 'Roboto Condensed';
@@ -89,25 +38,6 @@ outline: 2px solid #A6A6A6;
   text-align: center;
 
   color: #1D1F22;
-}
-
-[type=radio] + span {
-  cursor: pointer;
-}
-
-.swatchButton {
-  border: 1px solid #A6A6A6;
-  touch-action: manipulation;
-  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-}
-
-.swatchButton:active {
-  display: flex;
-  
-  background-color: #F7F7F7;
-  border-color: #000000;
-  transform: scale(.96);
-  color: #292929;
 }
 
 .productPricing {
@@ -162,7 +92,6 @@ outline: 2px solid #A6A6A6;
   color: #292929;
 }
 
-
 .addToCartButton {
   background: #5ECE7B;
   border: none;
@@ -186,5 +115,4 @@ outline: 2px solid #A6A6A6;
   color: #A6A6A6;
   border: 1px solid #A6A6A6;
 }
-
 

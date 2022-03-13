@@ -1,0 +1,70 @@
+@font-face {
+    font-family: Raleway;
+    src: local('Raleway'), url(./fonts/Raleway-SemiBold.ttf) format('opentype')
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: local('Roboto Condensed'), url(./fonts/RobotoCondensed-Regular.ttf) format('opentype')
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('Source Sans Pro'), url(./fonts/SourceSansPro-Regular.otf) format('opentype')
+}
+
+
+[type=radio] + span {
+    cursor: pointer;
+}
+
+.swatchButton {
+    border: 1px solid #A6A6A6;
+    touch-action: manipulation;
+    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+}
+  
+.swatchButton:active {
+    display: flex;
+
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+    color: #292929;
+}
+
+
+
+.attributeButton {
+    background-color: #FFFFFF;
+    border: 1px solid #292929;
+    box-sizing: border-box;
+
+    display: inline-block;
+
+    padding: 10px 23px;
+    position: relative;
+
+    text-align: center;
+    touch-action: manipulation;
+    transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #292929; 
+}
+
+.attributeButton:active {
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+    color: #292929;
+}
+
+
+[type=radio] + button {
+    cursor: pointer;
+}
