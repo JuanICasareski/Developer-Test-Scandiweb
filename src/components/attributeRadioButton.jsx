@@ -15,9 +15,9 @@ class AttributeRadioButton extends Component {
     render = () => {
         if (this.state.type == 'swatch') {
             return (
-                <label>
+                <label className='swatchButton'>
                     <input type='radio' name={this.state.id} required></input>
-                    <span className='swatchButton' style={{
+                    <span style={{
                             height: '25px',
                             width: '25px',
                             background : this.state.displayValue,
@@ -32,10 +32,9 @@ class AttributeRadioButton extends Component {
         }
         else {   
             return(
-                <label>
+                <label className='attributeButton'>
                     <input type='radio' name={this.state.id} required></input>
                     <button 
-                        className='attributeButton' 
                         style={{marginRight: '5px', marginTop: '0'}} 
                     >
                         {this.state.value}

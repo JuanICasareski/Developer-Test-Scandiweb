@@ -8,7 +8,7 @@ class ImgRadioButton extends Component {
 
     render() {
         return (
-            <label>
+            <label className='imgRadioButton'>
                 <input type='radio' name='test' value='small'></input>
                 <img 
                     src={this.props.url}
