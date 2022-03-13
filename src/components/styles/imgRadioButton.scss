@@ -14,7 +14,10 @@
 }
 
 .imgRadioButton [type=radio] { 
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .imgRadioButton input[type=radio] + img {
@@ -38,4 +41,3 @@
     right: 0;
     margin: auto;
   }
-  
