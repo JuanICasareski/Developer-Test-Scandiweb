@@ -14,7 +14,10 @@
 }
 
 .swatchButton [type=radio] { 
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .swatchButton input[type=radio] + span {
@@ -45,7 +48,7 @@
     height: 0;
 }
 
-.attributeButton button{
+.attributeButton span{
     background-color: #FFFFFF;
     border: 1px solid #292929;
     box-sizing: border-box;
@@ -67,13 +70,19 @@
     color: #292929; 
 }
 
-.attributeButton button:active {
+.attributeButton span:active {
     background-color: #F7F7F7;
     border-color: #000000;
     transform: scale(.96);
     color: #292929;
 }
 
-.attributeButton input[type=radio] + button {
+.attributeButton input[type=radio] + span {
     cursor: pointer;
+}
+
+.attributeButton input[type=radio]:checked + span {
+    color: #FFFFFF;
+    background: #1D1F22;
+    border: 1px solid #1D1F22;
 }
