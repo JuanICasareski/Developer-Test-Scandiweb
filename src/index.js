@@ -10,7 +10,7 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route exact path="/" render={props => <Index {...props} />}/>
-      <Route exact path="/item/:item_id" element={<ProductDescriptionPage />} />
+      <Route path="/item/:item_id" render={props => <ProductDescriptionPage {...props} />} />
     </Switch>
   </Router>,
   rootElement

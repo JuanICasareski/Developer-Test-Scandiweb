@@ -14,7 +14,7 @@ class ProductDescriptionPage extends Component {
         console.log("=== Component mounted ===")
         const query = `
             query {
-                product(id:"ps-5") {
+                product(id:"${this.props.match.params.item_id}") {
                     id
                     name
                     inStock
