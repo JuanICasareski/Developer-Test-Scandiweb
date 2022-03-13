@@ -39,6 +39,15 @@
     color: #292929;
 }
 
+.swatchButton input[type=radio]:checked + span {
+    border: 1px solid #1D1F22;
+    transform: translateY(-6px);
+}
+
+.swatchButton input[type=radio] + span:hover {
+    transform: scale(105%);
+}
+
 
 
 .attributeButton [type=radio] { 
