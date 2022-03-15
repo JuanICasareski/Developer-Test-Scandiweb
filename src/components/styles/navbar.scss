@@ -1,0 +1,46 @@
+
+@font-face {
+    font-family: Raleway;
+    src: local('Raleway'), url(./fonts/Raleway-SemiBold.ttf) format('opentype')
+}
+
+
+
+.navbar input[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.navbar span {
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7;
+
+    color: #292929;
+    text-align: center;
+    padding: 19px 30px;
+    text-decoration: none;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    transition: border-bottom .15s ease-out
+}
+
+.navbar input[type=radio]:checked + span {
+    font-weight: 600;
+    color: #5ECE7B;
+    border-bottom: 2px solid #5ECE7B;
+    padding-bottom: 16px;
+}
+
+.navbarIcon img{
+    max-height: 20px;
+    max-width: 20px;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+
