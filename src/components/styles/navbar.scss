@@ -16,7 +16,7 @@
 .navbar span {
     margin: 0;
     padding: 0;
-    background-color: #F7F7F7;
+    background-color: #FFFFFF;
 
     color: #292929;
     text-align: center;
@@ -37,10 +37,71 @@
     padding-bottom: 16px;
 }
 
-.navbarIcon img{
-    max-height: 20px;
-    max-width: 20px;
-    margin-top: 16px;
-    margin-left: 20px;
+
+
+@keyframes fade {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+.navbarCart:hover {
+    animation: fade 1s linear .2s infinite alternate;
+}
+
+
+
+.navbarIcons {
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.navbarIcons button {
+    border: none;
+    background: #FFFFFF;
+    display: inline-block;
+    position: relative;
+}
+
+.navbarIcons button:active {
+    color: #5ECE7B;     
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+  
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+} 
+  
+.dropdownContent a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+  
+.dropdownContent a:hover {
+    background-color: #ddd;
+}
+  
+.dropdown:hover .dropdownContent {
+    display: block;
 }
 

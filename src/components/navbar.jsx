@@ -8,7 +8,7 @@ class Navbar extends Component {
             items: null,
             currentCategory: 'all',
             currency: '$',
-            currencies: []  
+            currencies: null
         }
     }
 
@@ -71,23 +71,48 @@ class Navbar extends Component {
                 display: 'flex',
                 justifyContent: 'space-between'
             }}>
-                <div className='navbar' style={{marginTop: '20px'}}>
+                <div className='navbar' style={{marginTop: '30px'}}>
 
                     {
                         this.state.items?
                             this.state.items.map(category =>
-                                <label>
-                                    <input type='radio' name='category' />
-                                    <span onClick={() => this.setCategory(category.name)}>
-                                        {category.name.toUpperCase()}
-                                    </span>
-                                </label>
+                                category.name == this.state.currentCategory?
+                                    <label style={{height: '100%'}}>
+                                        <input type='radio' name='category' checked  />
+                                        <span onClick={() => this.setCategory(category.name)} style={{height: '100%'}}>
+                                            {category.name.toUpperCase()}
+                                        </span>
+                                    </label>
+                                :
+                                    <label>
+                                        <input type='radio' name='category' />
+                                        <span onClick={() => this.setCategory(category.name)}>
+                                            {category.name.toUpperCase()}
+                                        </span>
+                                    </label>
                             )
                         : null
                     }
                 </div>
-                <div className='navbarIcon'>
-                    <img src='/shopping-cart-x512.svg' alt="img"/>
+                <div className='navbarIcons' style={{display: 'flex', alignItems: 'center'}}>
+                    <div className='dropdown'>
+                        <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
+                            {this.state.currency}
+                            <img src='/dropdown-x512.svg' style={{marginBottom: '2px', marginLeft: '10px', height: '40%', alignSelf: 'flex-end'}} />
+                        </button>
+                        <div className='dropdownContent' style={{width: '114px', marginLeft: '-12px', marginTop: '7px'}}>
+                            {
+                                this.state.currencies?
+                                    this.state.currencies.map(currency =>
+                                        <a>{currency.symbol} {currency.label}</a>    
+                                    )
+                                : null
+                            }
+                        </div>
+                    </div>
+                    <button className='navbarCart' style={{height: '21px', paddingLeft: '5px'}}>
+                        <img src='/shopping-cart-x512.svg' style={{height: '100%'}} />
+                    </button>
                 </div>
             </div>
                 {
