@@ -61,6 +61,10 @@ class Navbar extends Component {
         this.setState({currentCategory: category})
     }
 
+    setCurrency = (currency) => {
+        this.setState({currency: currency})
+    }
+
     render() {
         console.log(this.state)
         return (
@@ -104,7 +108,9 @@ class Navbar extends Component {
                             {
                                 this.state.currencies?
                                     this.state.currencies.map(currency =>
-                                        <a>{currency.symbol} {currency.label}</a>    
+                                        <a onClick={() => this.setCurrency(currency.symbol)}>
+                                            {currency.symbol} {currency.label}
+                                        </a>    
                                     )
                                 : null
                             }
