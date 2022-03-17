@@ -39,21 +39,6 @@
 
 
 
-@keyframes fade {
-    0% {
-        opacity: 100%;
-    }
-    100% {
-        opacity: 0%;
-    }
-}
-
-.navbarCart:hover {
-    animation: fade 1s linear .2s infinite alternate;
-}
-
-
-
 .navbarIcons {
     vertical-align: middle;
     overflow: hidden;
@@ -105,3 +90,41 @@
     display: block;
 }
 
+
+
+@keyframes fade {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+.navbarCart input[type=checkbox]:checked + label {
+    animation: fade 1s linear .2s infinite alternate;
+}
+
+.navbarCart input[type=checkbox] {
+    display: none;  
+}
+
+.navbarCart input[type=checkbox]:checked ~ div {
+    display: block;
+}
+
+.navbarCart {
+    overflow: hidden;
+}
+
+.navbarCartInfo {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+    position: absolute;
+    display: none;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}

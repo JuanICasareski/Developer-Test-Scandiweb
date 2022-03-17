@@ -71,7 +71,7 @@ class Navbar extends Component {
                 display: 'flex',
                 justifyContent: 'space-between'
             }}>
-                <div className='navbar' style={{marginTop: '30px'}}>
+                <div className='navbar' style={{marginTop: '30px', marginLeft: '100px'}}>
 
                     {
                         this.state.items?
@@ -94,7 +94,7 @@ class Navbar extends Component {
                         : null
                     }
                 </div>
-                <div className='navbarIcons' style={{display: 'flex', alignItems: 'center'}}>
+                <div className='navbarIcons' style={{display: 'flex', alignItems: 'center', marginRight: '100px'}}>
                     <div className='dropdown'>
                         <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
                             {this.state.currency}
@@ -110,9 +110,16 @@ class Navbar extends Component {
                             }
                         </div>
                     </div>
-                    <button className='navbarCart' style={{height: '21px', paddingLeft: '5px'}}>
-                        <img src='/shopping-cart-x512.svg' style={{height: '100%'}} />
-                    </button>
+                    <div className='navbarCart'>
+                        <input type='checkbox' id='cart' />
+                        <label for='cart'>
+                            <img src='/shopping-cart-x512.svg' style={{maxHeight: '20px'}} />
+                        </label>
+
+                        <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px'}}>
+                            <img src='/shopping-cart-x512.svg' style={{height: '200px', width: '200px'}} />
+                        </div>
+                    </div>
                 </div>
             </div>
                 {
