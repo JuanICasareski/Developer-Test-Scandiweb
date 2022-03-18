@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ImgRadioButton from './imgRadioButton'
 import AttributeRadioButton from './attributeRadioButton'
 import styles from './styles/productMainView.scss'
+import CartContext from '../context/cartContext'
 
 class ProductMainView extends Component {
     constructor(props){
@@ -84,5 +85,7 @@ class ProductMainView extends Component {
         )
     }
 }
+
+ProductMainView.contextType = CartContext
 
 export default ProductMainView
