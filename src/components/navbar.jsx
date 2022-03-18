@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './styles/navbar.scss'
+import CartContext from '../context/cartContext'
 
 class Navbar extends Component {
     constructor(props) {
@@ -66,7 +67,6 @@ class Navbar extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <div style={{
@@ -128,23 +128,12 @@ class Navbar extends Component {
                     </div>
                 </div>
             </div>
-                {
-                    this.state.items?
-                        this.state.items.map(category =>
-                            category.name == this.state.currentCategory?
-                                category.products.map(item =>
-                                    <h1>
-                                        <a href={`/item/${item.id}`}>{item.id}</a>
-                                    </h1>    
-                                )    
-                            : null
-                    ) 
-                    :null
-                }
+                {this.props.children}
             </div>
         )
     }
 }
 
-//<img src='/shopping-cart-x512.svg' alt="img"/>
+Navbar.contextType = CartContext
+
 export default Navbar
