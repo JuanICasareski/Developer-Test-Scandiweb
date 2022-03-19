@@ -7,8 +7,6 @@ class Navbar extends Component {
         super(props)
         this.state = {
             items: null,
-            currentCategory: 'all',
-            currency: '$',
             currencies: null
         }
     }
@@ -45,9 +43,6 @@ class Navbar extends Component {
         
     }
 
-    setCurrency = (currency) => {
-        this.setState({currency: currency})
-    }
 
     render() {
         return (
@@ -84,14 +79,14 @@ class Navbar extends Component {
                 <div className='navbarIcons' style={{display: 'flex', alignItems: 'center', marginRight: '100px'}}>
                     <div className='dropdown'>
                         <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
-                            {this.state.currency}
+                            {this.context.currency}
                             <img src='/dropdown-x512.svg' style={{marginBottom: '2px', marginLeft: '10px', height: '40%', alignSelf: 'flex-end'}} />
                         </button>
                         <div className='dropdownContent' style={{width: '114px', marginLeft: '-12px', marginTop: '7px'}}>
                             {
                                 this.state.currencies?
                                     this.state.currencies.map(currency =>
-                                        <a onClick={() => this.setCurrency(currency.symbol)}>
+                                        <a onClick={() => this.context.setCurrency(currency.symbol)}>
                                             {currency.symbol} {currency.label}
                                         </a>    
                                     )
