@@ -106,12 +106,20 @@ class Navbar extends Component {
                     </div>
                 </div>
             </div>
-                {this.props.children}
+                <div style={{
+                    width: '1100px',
+                    height: '515px',
+                    position: 'relative',
+                    margin: '0 auto',
+                    marginTop: '50px'
+                }}>
+                    {this.props.children}
+                </div>
             </div>
         )
     }
 }
-
+// 1100x515
 Navbar.contextType = CartContext
 
 export default Navbar
