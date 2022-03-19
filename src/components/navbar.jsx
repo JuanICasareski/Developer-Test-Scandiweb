@@ -46,66 +46,69 @@ class Navbar extends Component {
 
     render() {
         return (
-            <div>
             <div style={{
                 width: '1440px',
-                height: '80px',
-                display: 'flex',
-                justifyContent: 'space-between'
+                height: '645px'
             }}>
-                <div className='navbar' style={{marginTop: '30px', marginLeft: '100px'}}>
+                <div style={{
+                    width: '1440px',
+                    height: '80px',
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}>
+                    <div className='navbar' style={{marginTop: '30px', marginLeft: '100px'}}>
 
-                    {
-                        this.state.items?
-                            this.state.items.map(category =>
-                                category.name == this.context.currentCategory?
-                                    <label style={{height: '100%'}}>
-                                        <input type='radio' name='category' checked  />
-                                        <span onClick={() => this.context.setCategory(category.name)} style={{height: '100%'}}>
-                                            {category.name.toUpperCase()}
-                                        </span>
-                                    </label>
-                                :
-                                    <label>
-                                        <input type='radio' name='category' />
-                                        <span onClick={() => this.context.setCategory(category.name)}>
-                                            {category.name.toUpperCase()}
-                                        </span>
-                                    </label>
-                            )
-                        : null
-                    }
-                </div>
-                <div className='navbarIcons' style={{display: 'flex', alignItems: 'center', marginRight: '100px'}}>
-                    <div className='dropdown'>
-                        <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
-                            {this.context.currency}
-                            <img src='/dropdown-x512.svg' style={{marginBottom: '2px', marginLeft: '10px', height: '40%', alignSelf: 'flex-end'}} />
-                        </button>
-                        <div className='dropdownContent' style={{width: '114px', marginLeft: '-12px', marginTop: '7px'}}>
-                            {
-                                this.state.currencies?
-                                    this.state.currencies.map(currency =>
-                                        <a onClick={() => this.context.setCurrency(currency.symbol)}>
-                                            {currency.symbol} {currency.label}
-                                        </a>    
-                                    )
-                                : null
-                            }
+                        {
+                            this.state.items?
+                                this.state.items.map(category =>
+                                    category.name == this.context.currentCategory?
+                                        <label style={{height: '100%'}}>
+                                            <input type='radio' name='category' checked  />
+                                            <span onClick={() => this.context.setCategory(category.name)} style={{height: '100%'}}>
+                                                {category.name.toUpperCase()}
+                                            </span>
+                                        </label>
+                                    :
+                                        <label>
+                                            <input type='radio' name='category' />
+                                            <span onClick={() => this.context.setCategory(category.name)}>
+                                                {category.name.toUpperCase()}
+                                            </span>
+                                        </label>
+                                )
+                            : null
+                        }
+                    </div>
+                    <div className='navbarIcons' style={{display: 'flex', alignItems: 'center', marginRight: '100px'}}>
+                        <div className='dropdown'>
+                            <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
+                                {this.context.currency}
+                                <img src='/dropdown-x512.svg' style={{marginBottom: '2px', marginLeft: '10px', height: '40%', alignSelf: 'flex-end'}} />
+                            </button>
+                            <div className='dropdownContent' style={{width: '114px', marginLeft: '-12px', marginTop: '7px'}}>
+                                {
+                                    this.state.currencies?
+                                        this.state.currencies.map(currency =>
+                                            <a onClick={() => this.context.setCurrency(currency.symbol)}>
+                                                {currency.symbol} {currency.label}
+                                            </a>    
+                                        )
+                                    : null
+                                }
+                            </div>
+                        </div>
+                        <div className='navbarCart'>
+                            <input type='checkbox' id='cart' />
+                            <label for='cart'>
+                                <img src='/shopping-cart-x512.svg' style={{maxHeight: '20px'}} />
+                            </label>
+
+                            <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px'}}>
+                                <img src='/shopping-cart-x512.svg' style={{height: '200px', width: '200px'}} />
+                            </div>
                         </div>
                     </div>
-                    <div className='navbarCart'>
-                        <input type='checkbox' id='cart' />
-                        <label for='cart'>
-                            <img src='/shopping-cart-x512.svg' style={{maxHeight: '20px'}} />
-                        </label>
-
-                        <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px'}}>
-                            <img src='/shopping-cart-x512.svg' style={{height: '200px', width: '200px'}} />
-                        </div>
-                    </div>
                 </div>
-            </div>
                 <div style={{
                     width: '1100px',
                     height: '515px',
@@ -119,7 +122,7 @@ class Navbar extends Component {
         )
     }
 }
-// 1100x515
+
 Navbar.contextType = CartContext
 
 export default Navbar
