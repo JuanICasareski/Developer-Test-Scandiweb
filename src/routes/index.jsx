@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CartContext from '../context/cartContext'
 
 class Index extends Component {
     constructor(props) {
@@ -11,9 +12,20 @@ class Index extends Component {
     componentDidMount() {
         const query = `
             query {
-                category(input: {title: "all"}) {
+                categories {
+                    name
                     products {
                         id
+                        name
+                        brand
+                        inStock
+                        gallery
+                        prices {
+                            currency {
+                                symbol  
+                            }
+                            amount
+                        }
                     }
                 }
             }           
@@ -30,25 +42,30 @@ class Index extends Component {
         }).then(response => {
             return response.json()
         }).then(data => {
-            this.setState({items: data.data.category.products})
+            this.setState({items: data.data.categories})
         })
     }
     render() {
         return (
             <div>
-                <h1>Links</h1>
-                {   
+                {
                     this.state.items?
-                        this.state.items.map((item) => 
-                            <h3>
-                                <a href={`/item/${item.id}`}>{item.id}</a>
-                            </h3>
+                        this.state.items.map(category =>
+                            category.name == this.context.currentCategory?
+                                category.products.map(product => 
+                                    <h3>
+                                        <a href={`/item/${product.id}`}>{product.id}</a>
+                                    </h3>     
+                                )                               
+                            : null
                         )
-                    : null    
+                    : null
                 }
             </div>
         )
     }
 }
+
+Index.contextType = CartContext
 
 export default Index

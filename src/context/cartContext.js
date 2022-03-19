@@ -9,19 +9,25 @@ const CartContext = React.createContext({})
 export class CartProvider extends Component {
     state = {
         items: null,
+        currentCategory: 'all'
     }
 
     addItem = () => {
         this.setState({items: 'boenas'})
     }
 
+    setCategory = (category) => {
+        this.setState({currentCategory: category})
+    }
     render() {
-        const {items} = this.state
-        const {addItem} = this;
+        const {items, currentCategory} = this.state
+        const {addItem, setCategory} = this;
         return (
             <CartContext.Provider value={{
                 items,
-                addItem
+                addItem,
+                currentCategory,
+                setCategory
             }}>
                 {this.props.children}
             </CartContext.Provider>

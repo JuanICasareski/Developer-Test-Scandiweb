@@ -58,10 +58,6 @@ class Navbar extends Component {
         
     }
 
-    setCategory = (category) => {
-        this.setState({currentCategory: category})
-    }
-
     setCurrency = (currency) => {
         this.setState({currency: currency})
     }
@@ -80,17 +76,17 @@ class Navbar extends Component {
                     {
                         this.state.items?
                             this.state.items.map(category =>
-                                category.name == this.state.currentCategory?
+                                category.name == this.context.currentCategory?
                                     <label style={{height: '100%'}}>
                                         <input type='radio' name='category' checked  />
-                                        <span onClick={() => this.setCategory(category.name)} style={{height: '100%'}}>
+                                        <span onClick={() => this.context.setCategory(category.name)} style={{height: '100%'}}>
                                             {category.name.toUpperCase()}
                                         </span>
                                     </label>
                                 :
                                     <label>
                                         <input type='radio' name='category' />
-                                        <span onClick={() => this.setCategory(category.name)}>
+                                        <span onClick={() => this.context.setCategory(category.name)}>
                                             {category.name.toUpperCase()}
                                         </span>
                                     </label>
