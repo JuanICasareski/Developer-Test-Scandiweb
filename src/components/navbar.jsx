@@ -15,23 +15,10 @@ class Navbar extends Component {
 
     componentDidMount() {
         const query = `
-            query {
+            query {        
                 categories {
-                    name
-                    products {
-                      id
-                      name
-                      brand
-                      inStock
-                      gallery
-                      prices {
-                        currency {
-                            symbol  
-                        }
-                        amount
-                      }
-                    }
-                  }
+                    name 
+                }
                 currencies {
                     label
                     symbol
