@@ -46,8 +46,8 @@ class ProductMainView extends Component {
 
                         {/* vvvvv Descripcion y eso acá vvvvv */}
                     </div>
-                    <div style={{height: '515px', width: '290px', marginLeft: '100px'}}>
-                        <div style={{marginBottom: '40px'}}>
+                    <div style={{height: '515px', width: '290px', marginLeft: '100px', display: 'flex', flexDirection: 'column'}}>
+                        <div    >
                             <p className='productBrand' style={{marginBottom: '7px'}}><b>{this.state.brand}</b></p>
                             <p className='productName' style={{margin: '0px'}}>{this.state.name}</p> 
                         </div>
@@ -67,7 +67,7 @@ class ProductMainView extends Component {
                             )
                         }
 
-                        <div style={{marginTop: '40px'}}>
+                        <div>
                             <p className='productSubtitle'>PRICE:</p>
                             <p className='productPricing'>{this.state.prices[0].currency.symbol}{this.state.prices[0].amount}</p>
                         </div>
@@ -78,8 +78,9 @@ class ProductMainView extends Component {
                             :
                                 <button disabled className='addToCartButton' style={{width: '100%'}} title='🥲'>OUT OF STOCK</button>
                         }
-                            
-                        <div className='productDescription' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+                        <div className='noScrollBar' style={{overflow: 'scroll'}}>
+                            <div className='productDescription' style={{maxHeight: '100%'}} dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+                        </div>
                     </div>
                 </div>
         )
