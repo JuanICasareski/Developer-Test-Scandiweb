@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Raleway;
+    src: local('Raleway'), url(./fonts/Raleway-SemiBold.ttf) format('opentype')
+  }
+  
+
+
+.productIndexViewName {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+}
+
+.productIndexViewPricing {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.indexView {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px 40px;
+}
+
+.productIndexView {
+    transition: box-shadow .5s
+}
+
+.productIndexView:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}

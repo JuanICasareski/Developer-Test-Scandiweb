@@ -114,11 +114,7 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <div className={this.state.isDimmed? 'dimmed' : 'undimmed'} style={{paddingTop: '50px'}}>              
-                    <div style={{
-                        width: '1100px',
-                        position: 'relative',
-                        margin: '0 auto'
-                    }}>
+                    <div>
                         {this.props.children}
                     </div>
                 </div>
@@ -126,6 +122,7 @@ class Navbar extends Component {
         )
     }
 }
+//1100px
 
 Navbar.contextType = CartContext
 
