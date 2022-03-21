@@ -7,7 +7,8 @@ class Navbar extends Component {
         super(props)
         this.state = {
             items: null,
-            currencies: null
+            currencies: null,
+            isDimmed: false
         }
     }
 
@@ -43,6 +44,9 @@ class Navbar extends Component {
         
     }
 
+    toggleDimm  = () => {
+        this.setState({isDimmed: !this.state.isDimmed})
+    }
 
     render() {
         return (
@@ -98,25 +102,25 @@ class Navbar extends Component {
                             </div>
                         </div>
                         <div className='navbarCart'>
-                            <input type='checkbox' id='cart' />
+                            <input type='checkbox' id='cart' onClick={() => this.toggleDimm()}/>
                             <label for='cart'>
                                 <img src='/shopping-cart-x512.svg' style={{maxHeight: '20px'}} />
                             </label>
 
-                            <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px'}}>
+                            <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px', zIndex: 3}}>
                                 <img src='/shopping-cart-x512.svg' style={{height: '200px', width: '200px'}} />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style={{
-                    width: '1100px',
-                    height: '515px',
-                    position: 'relative',
-                    margin: '0 auto',
-                    marginTop: '50px'
-                }}>
-                    {this.props.children}
+                <div className={this.state.isDimmed? 'dimmed' : 'undimmed'} style={{paddingTop: '50px'}}>              
+                    <div style={{
+                        width: '1100px',
+                        position: 'relative',
+                        margin: '0 auto'
+                    }}>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
         )
