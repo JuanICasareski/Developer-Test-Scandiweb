@@ -97,7 +97,7 @@
 
 
 
-@keyframes fade {
+@keyframes fadeOut {
     0% {
         opacity: 100%;
     }
@@ -106,12 +106,22 @@
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        filter: opacity(0%);
+    }
+    100% {
+        filter: opacity(100%);
+    }
+}
+
 .navbarCart input[type=checkbox]:checked + label {
-    animation: fade 1s linear .2s infinite alternate;
+    animation: fadeOut 1s linear .2s infinite alternate;
 }
 
 .navbarCart input[type=checkbox] {
     display: none;  
+    animation: fadeIn .5s reverse ease-in;
 }
 
 .navbarCart input[type=checkbox]:checked ~ div {
@@ -131,6 +141,7 @@
     position: absolute;
     display: none;
     background-color: #FFFFFF;
+    animation: fadeIn .5s;
 }
 
 
