@@ -60,6 +60,15 @@
     overflow: hidden;
 }
   
+@keyframes dropY {
+    0% {
+        transform: scaleY(0%);
+    }
+    100% {
+        transform: scaleY(100%);
+    }
+}
+
 .dropdownContent {
     display: none;
     position: absolute;
@@ -93,6 +102,7 @@
 
 .dropdown:hover .dropdownContent {
     display: block;
+    animation: dropY .5s
 }
 
 
