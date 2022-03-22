@@ -50,7 +50,7 @@ class Index extends Component {
             <div style={{
                 width: '1238px',
                 position: 'relative',
-                margin: '0 auto'    
+                margin: '0 auto'
                 }}
             >
                 {
@@ -81,6 +81,9 @@ class Index extends Component {
                                                         }}
                                                     />   
                                                 </div>
+                                                <span className='productIndexCartButton'>
+                                                    <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
+                                                </span>
                                                 <div style={{
                                                     marginLeft: '16px',
                                                     marginTop: '35px'
