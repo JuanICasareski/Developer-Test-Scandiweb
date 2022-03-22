@@ -50,7 +50,7 @@ class Index extends Component {
             <div style={{
                 width: '1238px',
                 position: 'relative',
-                margin: '0 auto'
+            margin: '0 auto'
                 }}
             >
                 {
@@ -60,43 +60,45 @@ class Index extends Component {
                                 <div className='indexView'>
                                     {
                                         category.products.map(product => 
-                                            <div className='productIndexView' 
-                                                style={{
-                                                width: '386px',
-                                                height: '444px',
-                                                paddingTop: '16px'
-                                                }}
-                                            >
-                                                <div style={{
-                                                    height: '330px',
+                                            <a href={"/item/" + product.id}>
+                                                <div className='productIndexView' 
+                                                    style={{
                                                     width: '386px',
-                                                    position: 'relative'
+                                                    height: '444px',
+                                                    paddingTop: '16px'
                                                     }}
                                                 >
-                                                    <img src={product.gallery[0]}
-                                                        className='centerImage' 
-                                                        style={{
-                                                            maxHeight: '330px',
-                                                            maxWidth: '354px'
+                                                    <div style={{
+                                                        height: '330px',
+                                                        width: '386px',
+                                                        position: 'relative'
                                                         }}
-                                                    />   
-                                                </div>
-                                                <span className='productIndexCartButton'>
-                                                    <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
-                                                </span>
-                                                <div style={{
-                                                    marginLeft: '16px',
-                                                    marginTop: '35px'
-                                                    }}
-                                                >
-                                                    <h3 className='productIndexViewName' style={{marginBottom: 0}}>
-                                                        {product.brand} {product.name}
-                                                    </h3>
-                                                    <h4 className='productIndexViewPricing' style={{marginTop: '2px'}}>
-                                                        {product.prices[0].currency.symbol}{product.prices[0].amount}
-                                                    </h4>
-                                                </div>
-                                            </div>     
+                                                    >
+                                                        <img src={product.gallery[0]}
+                                                            className='centerImage' 
+                                                            style={{
+                                                                maxHeight: '330px',
+                                                                maxWidth: '354px'
+                                                            }}
+                                                        />   
+                                                    </div>
+                                                    <span className='productIndexCartButton'>
+                                                        <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
+                                                    </span>
+                                                    <div style={{
+                                                        marginLeft: '16px',
+                                                        marginTop: '35px'
+                                                        }}
+                                                    >
+                                                        <h3 className='productIndexViewName' style={{marginBottom: 0}}>
+                                                            {product.brand} {product.name}
+                                                        </h3>
+                                                        <h4 className='productIndexViewPricing' style={{marginTop: '2px'}}>
+                                                            {product.prices[0].currency.symbol}{product.prices[0].amount}
+                                                        </h4>
+                                                    </div>
+                                                </div>     
+                                            </a>
                                         )                               
                                     }
                                 </div>

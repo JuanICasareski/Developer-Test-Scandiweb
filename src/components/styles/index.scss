@@ -30,6 +30,11 @@
     transition: box-shadow .5s
 }
 
+.indexView a:visited, a{
+    color: #1D1F22;
+    text-decoration: none;
+}
+
 .productIndexView:hover {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -64,4 +69,4 @@
 
 .productIndexCartButton img{
     filter: invert(100%);
-}
+}   
