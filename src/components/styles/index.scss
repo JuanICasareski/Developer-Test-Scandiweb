@@ -70,3 +70,30 @@
 .productIndexCartButton img{
     filter: invert(100%);
 }   
+
+.outOfStock {
+    opacity: 50%;
+}
+
+.outOfStock > .outOfStockLabel{
+    display: flex;
+}
+
+.outOfStockLabel {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 160%;
+
+    display: none;
+    position: absolute;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+
+    height: 330px;
+    width: 386px;
+
+    color: #8D8F9A;
+}

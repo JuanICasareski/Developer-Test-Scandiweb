@@ -61,13 +61,16 @@ class Index extends Component {
                                     {
                                         category.products.map(product => 
                                             <a href={"/item/" + product.id}>
-                                                <div className='productIndexView' 
+                                                <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
                                                     style={{
                                                     width: '386px',
                                                     height: '444px',
                                                     paddingTop: '16px'
                                                     }}
-                                                >
+                                                >   
+                                                    <div className='outOfStockLabel'>
+                                                        OUT OF STOCK
+                                                    </div>
                                                     <div style={{
                                                         height: '330px',
                                                         width: '386px',
@@ -82,9 +85,15 @@ class Index extends Component {
                                                             }}
                                                         />   
                                                     </div>
-                                                    <span className='productIndexCartButton'>
-                                                        <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
-                                                    </span>
+                                                    {
+                                                        product.inStock?
+                                                            <span className='productIndexCartButton'>
+                                                                <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
+                                                            </span>
+                                                        :
+                                                            null
+
+                                                    }
                                                     <div style={{
                                                         marginLeft: '16px',
                                                         marginTop: '35px'
