@@ -114,7 +114,7 @@ class Navbar extends Component {
                         </div>
                     </div>
                 </div>
-                <div className={this.state.isDimmed? 'dimmed' : 'undimmed'} style={{paddingTop: '50px'}}>              
+                <div className={this.state.isDimmed? 'dimmed' : 'undimmed'}>              
                     <div>
                         {this.props.children}
                     </div>
