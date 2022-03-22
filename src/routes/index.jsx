@@ -50,7 +50,8 @@ class Index extends Component {
             <div style={{
                 width: '1238px',
                 position: 'relative',
-                margin: '0 auto'
+                margin: '0 auto',
+                paddingTop: '80px'
             }}
             >
                 <h1 className='categoryTitle'>{this.context.currentCategory}</h1>
