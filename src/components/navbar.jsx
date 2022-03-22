@@ -51,11 +51,11 @@ class Navbar extends Component {
     render() {
         return (
             <div style={{
-                width: '1440px',
+                width: '100%',
                 height: '645px'
             }}>
                 <div style={{
-                    width: '1440px',
+                    width: '100%',
                     height: '80px',
                     display: 'flex',
                     justifyContent: 'space-between'
