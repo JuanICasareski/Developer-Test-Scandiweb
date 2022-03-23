@@ -17,7 +17,7 @@ class NavbarIcons extends Component {
                     <button className='currencySelectorButton'>
                         <div>
                             {this.context.currency}
-                            <img src='./dropdown-x512.svg' height='10px'/>
+                            <img src='/dropdown-x512.svg' height='10px'/>
                         </div>
                     </button>
                     <div className='currencySelectorContent'>
