@@ -86,7 +86,11 @@ class Navbar extends Component {
 
                     </div>
                     <div>
-                        <NavbarIcons currencies={this.state.currencies} />
+                        {
+                            this.state.currencies?
+                                <NavbarIcons currencies={this.state.currencies} />
+                            : null
+                        }
                     </div>
                 </div>
                 <div className={this.state.isDimmed? 'dimmed' : 'undimmed'}>              

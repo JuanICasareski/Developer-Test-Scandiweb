@@ -22,13 +22,11 @@ class NavbarIcons extends Component {
                     </button>
                     <div className='currencySelectorContent'>
                         {
-                            this.state.currencies?
-                                this.state.currencies.map(currency =>
-                                    <a onClick={() => this.context.setCurrency(currency.symbol)}>
-                                        {currency.symbol} {currency.label}
-                                    </a>    
-                                )
-                            : null
+                            this.state.currencies.map(currency =>
+                                <a onClick={() => this.context.setCurrency(currency.symbol)}>
+                                    {currency.symbol} {currency.label}
+                                </a>    
+                            )
                         }
                     </div>
                 </div>
