@@ -11,7 +11,6 @@ class NavbarIcons extends Component {
     }
 
     render() {
-        console.log(this.context.isDimmed)
         return (
             <div className='navbarIcons' style={{marginTop: '25px', display: 'flex', marginRight: '100px'}}>
                 <div className='currencySelector' style={{}}>

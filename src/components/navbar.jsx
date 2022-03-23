@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from './styles/navbar.scss'
 import CartContext from '../context/cartContext'
-import NavbarIcons from './navbarItems'
+import NavbarIcons from './navbarIcons'
 
 class Navbar extends Component {
     constructor(props) {
