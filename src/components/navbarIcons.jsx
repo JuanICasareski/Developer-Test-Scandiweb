@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './styles/navbarItems.scss'
+import styles from './styles/navbarIcons.scss'
 import CartContext from '../context/cartContext'
 
 class NavbarIcons extends Component {
