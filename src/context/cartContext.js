@@ -10,7 +10,8 @@ export class CartProvider extends Component {
     state = {
         items: null,
         currentCategory: 'all',
-        currency: '$'
+        currency: '$',
+        isDimmed: false
     }
 
     addItem = () => {
@@ -25,9 +26,13 @@ export class CartProvider extends Component {
         this.setState({currency: currency})
     }
 
+    toggleDimm = () => {
+        this.setState({isDimmed: !this.state.isDimmed})
+    }
+
     render() {
-        const {items, currentCategory, currency} = this.state
-        const {addItem, setCategory, setCurrency} = this;
+        const {items, currentCategory, currency, isDimmed} = this.state
+        const {addItem, setCategory, setCurrency, toggleDimm} = this;
         return (
             <CartContext.Provider value={{
                 items,
@@ -35,7 +40,9 @@ export class CartProvider extends Component {
                 currentCategory,
                 setCategory,
                 currency,
-                setCurrency
+                setCurrency,
+                isDimmed,
+                toggleDimm
             }}>
                 {this.props.children}
             </CartContext.Provider>

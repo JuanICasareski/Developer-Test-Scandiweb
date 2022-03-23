@@ -11,6 +11,7 @@ class NavbarIcons extends Component {
     }
 
     render() {
+        console.log(this.context.isDimmed)
         return (
             <div className='navbarIcons' style={{marginTop: '25px', display: 'flex', marginRight: '100px'}}>
                 <div className='currencySelector' style={{}}>
@@ -31,7 +32,7 @@ class NavbarIcons extends Component {
                     </div>
                 </div>
                 <div className='navbarCart' style={{marginLeft: '20px'}}>
-                    <input type='checkbox' id='cart' />
+                    <input type='checkbox' id='cart' onClick={this.context.toggleDimm}/>
                     <label for='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>

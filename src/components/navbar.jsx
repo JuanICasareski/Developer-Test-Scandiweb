@@ -8,8 +8,7 @@ class Navbar extends Component {
         super(props)
         this.state = {
             items: null,
-            currencies: null,
-            isDimmed: false
+            currencies: null
         }
     }
 
@@ -43,10 +42,6 @@ class Navbar extends Component {
             })
         })
         
-    }
-
-    toggleDimm  = () => {
-        this.setState({isDimmed: !this.state.isDimmed})
     }
 
     render() {
@@ -93,7 +88,7 @@ class Navbar extends Component {
                         }
                     </div>
                 </div>
-                <div className={this.state.isDimmed? 'dimmed' : 'undimmed'}>              
+                <div className={this.context.isDimmed? 'dimmed' : 'undimmed'}>              
                     <div>
                         {this.props.children}
                     </div>
