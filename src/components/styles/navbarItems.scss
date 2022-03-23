@@ -1,0 +1,152 @@
+
+@font-face {
+    font-family: Raleway;
+    src: local('Raleway'), url(./fonts/Raleway-SemiBold.ttf) format('opentype')
+}
+
+
+
+.currencySelectorButton {
+    border: none;
+    padding-bottom: 25px;
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    background-color: #FFFFFF;
+    color: #1D1F22;
+}
+
+.currencySelector:hover > .currencySelectorContent {
+    display: block
+}
+
+@keyframes dropY {
+    0% {
+        transform: scaleY(0%);
+    }
+    100% {
+        transform: scaleY(100%);
+    }
+}
+
+.currencySelectorContent:hover * {
+    display: block;
+}
+
+.currencySelectorButton img {
+    margin-left: 3px;
+}
+
+.currencySelectorContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    margin-left: -2px;
+    animation: dropY .5s;
+}
+
+.currencySelectorContent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: box-shadow .2s, transform .1s;
+}
+
+.currencySelectorContent a:hover {
+    background-color: #ddd;
+}
+
+.currencySelector a:active {
+    transform: scale(96%);
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        filter: opacity(0%);
+    }
+    100% {
+        filter: opacity(100%);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        filter: opacity(100%);
+    }
+    100% {
+        filter: opacity(0%);
+    }
+}
+
+.navbarCart input[type=checkbox] {
+    display: none;
+    animation: fadeIn .5s reverse;
+}
+
+.navbarCartInfo {
+    animation: fadeIn .5s;
+}
+
+.navbarCart input[type=checkbox]:checked + label {
+    animation: fadeOut 1s linear .2s infinite alternate;
+}
+
+.navbarCart input[type=checkbox]:checked ~ .navbarCartInfo {
+    display: block;
+}
+
+.navbarCartInfo {
+    display: none;
+    position: absolute;
+    margin-top: 29px;
+    margin-left: -177px;
+    background-color: #FFFFFF;
+    animation: fadeIn .5s;
+    z-index: 3;
+}
+
+@keyframes dimmAnimation {
+    0% {
+        background-color: rgba(0,0,0,0);
+        filter: brightness(100%)
+    }
+
+    100% {
+        background-color: rgba(0,0,0,0.2);
+        filter: brightness(80%)
+    }
+}
+
+@keyframes dimmAnimation2 {
+    0% {
+        background-color: rgba(0,0,0,0.22);
+        filter: brightness(78%)
+    }
+
+    100% {
+        background-color: rgba(0,0,0,0);
+        filter: brightness(100%)
+    }
+}
+
+.dimmed {
+    animation: dimmAnimation .5s forwards;
+}
+
+.undimmed {
+    animation: dimmAnimation2 .5s forwards;
+}

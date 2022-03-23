@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './styles/navbar.scss'
 import CartContext from '../context/cartContext'
+import NavbarIcons from './navbarItems'
 
 class Navbar extends Component {
     constructor(props) {
@@ -84,34 +85,8 @@ class Navbar extends Component {
                     }
 
                     </div>
-                    <div className='navbarIcons' style={{display: 'flex', alignItems: 'center', marginRight: '100px'}}>
-                        <div className='dropdown'>
-                            <button className='dropdownButton' style={{textAlign: 'center', display: 'flex', height: '20px', fontSize: '16px', marginRight: '22px'}}>
-                                {this.context.currency}
-                                <img src='/dropdown-x512.svg' style={{marginBottom: '2px', marginLeft: '10px', height: '40%', alignSelf: 'flex-end'}} />
-                            </button>
-                            <div className='dropdownContent' style={{width: '114px', marginLeft: '-12px', marginTop: '7px'}}>
-                                {
-                                    this.state.currencies?
-                                        this.state.currencies.map(currency =>
-                                            <a onClick={() => this.context.setCurrency(currency.symbol)}>
-                                                {currency.symbol} {currency.label}
-                                            </a>    
-                                        )
-                                    : null
-                                }
-                            </div>
-                        </div>
-                        <div className='navbarCart'>
-                            <input type='checkbox' id='cart' onClick={() => this.toggleDimm()}/>
-                            <label for='cart'>
-                                <img src='/shopping-cart-x512.svg' style={{maxHeight: '20px'}} />
-                            </label>
-
-                            <div className='navbarCartInfo' style={{marginTop: '4px', marginLeft: '-212px', zIndex: 3}}>
-                                <img src='/shopping-cart-x512.svg' style={{height: '200px', width: '200px'}} />
-                            </div>
-                        </div>
+                    <div>
+                        <NavbarIcons currencies={this.state.currencies} />
                     </div>
                 </div>
                 <div className={this.state.isDimmed? 'dimmed' : 'undimmed'}>              
