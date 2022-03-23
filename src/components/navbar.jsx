@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from './styles/navbar.scss'
 import CartContext from '../context/cartContext'
 import NavbarIcons from './navbarIcons'
+import NavbarCategory from './navbarCategory'
 
 class Navbar extends Component {
     constructor(props) {
@@ -61,20 +62,7 @@ class Navbar extends Component {
                     {
                         this.state.items?
                             this.state.items.map(category =>
-                                this.context.currentCategory === category.name?
-                                    <label>
-                                        <input type='radio' name='category' checked/>
-                                        <span onClick={() => this.context.setCategory(category.name)}>
-                                            {category.name.toUpperCase()}
-                                        </span>
-                                    </label>    
-                                : 
-                                    <label>
-                                        <input type='radio' name='category' />
-                                        <span onClick={() => this.context.setCategory(category.name)}>
-                                            {category.name.toUpperCase()}
-                                        </span>
-                                    </label>
+                                <NavbarCategory tag={category.name} onClick={() => this.context.setCategory(category.name)} />
                             )
                         : null
                     }
