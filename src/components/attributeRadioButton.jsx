@@ -34,10 +34,7 @@ class AttributeRadioButton extends Component {
             return(
                 <label className='attributeButton'>
                     <input type='radio' name={this.state.type} id={this.state.id} required></input>
-                    <span
-                        for={this.state.id} 
-                        style={{marginRight: '5px', marginTop: '0'}} 
-                    >
+                    <span for={this.state.id}>
                         {this.state.value}
                     </span>
                 </label>

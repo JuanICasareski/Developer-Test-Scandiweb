@@ -56,7 +56,7 @@ class ProductMainView extends Component {
 
                                 <div>
                                     <p className='productSubtitle'>{attr.id.toUpperCase()}:</p>
-                                    <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '5px 5px'}}>
                                         {
                                             attr.items.map((a) => 
                                                     <AttributeRadioButton attr={a} type={attr.type}/>
