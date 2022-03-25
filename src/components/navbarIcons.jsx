@@ -24,7 +24,7 @@ class NavbarIcons extends Component {
                     <div className='currencySelectorContent'>
                         {
                             this.state.currencies.map(currency =>
-                                <a onClick={() => this.context.setCurrency(currency.symbol)}>
+                                <a onClick={() => this.context.setCurrency(currency.symbol)} key={currency.symbol}>
                                     {currency.symbol} {currency.label}
                                 </a>    
                             )
@@ -33,7 +33,7 @@ class NavbarIcons extends Component {
                 </div>
                 <div className='navbarCart' style={{marginLeft: '20px'}}>
                     <input type='checkbox' id='cart' onClick={this.context.toggleDimm}/>
-                    <label for='cart'>
+                    <label htmlFor='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>
                     <div className='navbarCartInfo' style={{width: '325px'}}>

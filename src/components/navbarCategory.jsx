@@ -10,7 +10,7 @@ class NavbarCategory extends Component {
     render() {
         return (
             <label>
-                <input type='radio' name='category' checked/>
+                <input type='radio' name='category'/>
                 <span onClick={this.props.onClick}>
                     {this.props.tag.toUpperCase()}
                 </span>
@@ -18,6 +18,7 @@ class NavbarCategory extends Component {
         )
     }
 }
+// Add default checked
 
 NavbarCategory.context = CartContext
 

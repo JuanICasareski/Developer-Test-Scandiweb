@@ -59,10 +59,10 @@ class Index extends Component {
                     this.state.items?
                         this.state.items.map(category =>
                             category.name == this.context.currentCategory?
-                                <div className='indexView'>
+                                <div className='indexView' key={category}>
                                     {
                                         category.products.map(product => 
-                                            <a href={"/item/" + product.id}>
+                                            <a href={"/item/" + product.id} key={product.id}>
                                                 <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
                                                     style={{
                                                     width: '386px',

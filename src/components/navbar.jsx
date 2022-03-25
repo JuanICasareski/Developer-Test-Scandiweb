@@ -62,7 +62,7 @@ class Navbar extends Component {
                     {
                         this.state.items?
                             this.state.items.map(category =>
-                                <NavbarCategory tag={category.name} onClick={() => this.context.setCategory(category.name)} />
+                                <NavbarCategory tag={category.name} onClick={() => this.context.setCategory(category.name)} key={category.name} />
                             )
                         : null
                     }
