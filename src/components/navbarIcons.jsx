@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './styles/navbarIcons.scss'
 import CartContext from '../context/cartContext'
+import SmallCartItem from './smallCartItem'
 
 class NavbarIcons extends Component {
     constructor(props) {
@@ -35,8 +36,8 @@ class NavbarIcons extends Component {
                     <label for='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>
-                    <div className='navbarCartInfo'>
-                        <img src='/shopping-cart-x512.svg' style={{height: '200px'}} />
+                    <div className='navbarCartInfo' style={{width: '325px'}}>
+                        <SmallCartItem />
                     </div>
                 </div>
             </div>
