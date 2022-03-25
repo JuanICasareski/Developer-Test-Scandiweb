@@ -59,7 +59,7 @@ class ProductMainView extends Component {
                                     <div style={{display: 'flex', flexWrap: 'wrap', gap: '5px 5px'}}>
                                         {
                                             attr.items.map((a) => 
-                                                    <AttributeRadioButton attr={a} type={attr.type}/>
+                                                    <AttributeRadioButton attr={a} type={attr.type} name={attr.name}/>
                                             )
                                         }
                                     </div>
