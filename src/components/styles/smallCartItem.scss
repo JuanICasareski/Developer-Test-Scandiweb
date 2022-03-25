@@ -1,0 +1,115 @@
+
+@font-face {
+    font-family: Raleway;
+    src: local('Raleway'), url(./fonts/Raleway-SemiBold.ttf) format('opentype')
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: local('Source Sans Pro'), url(./fonts/SourceSansPro-Regular.otf) format('opentype')
+}
+
+
+.smallCartItem {
+    width: 293px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallCartItemRight {
+    height: 137px;
+    width: 140px;
+    display: flex;
+    flex-direction: row;
+}
+
+.smallCartItemLeft {
+    width: 143px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.countSelector {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.countSelector button {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #1D1F22;
+    color: #1D1F22;
+    text-align: center;
+    font-size: 18px;
+}
+
+.countSelector p {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: #1D1F22;
+}
+
+
+
+.smallCartItemName {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.smallCartItemPricing {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+
+
+
+.smallCartItemAttributes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px 10px;
+}
+
+.smallCartItemAttributes button {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    background-color: #FFFFFF;
+    border: 1px solid #1D1F22;
+    color: #1D1F22;
+    text-align: center;
+    
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+.smallCartItemDetails p {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    color: #A6A6A6;
+    font-family: 'Raleway';
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+}
