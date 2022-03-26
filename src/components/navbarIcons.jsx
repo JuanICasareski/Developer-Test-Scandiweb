@@ -24,9 +24,20 @@ class NavbarIcons extends Component {
                     <div className='currencySelectorContent'>
                         {
                             this.state.currencies.map(currency =>
-                                <a onClick={() => this.context.setCurrency(currency.symbol)} key={currency.symbol}>
-                                    {currency.symbol} {currency.label}
-                                </a>    
+                                currency.symbol === this.context.currency?
+                                    <>
+                                        <input type='radio' name='currency' id={currency.symbol} onClick={() => this.context.setCurrency(currency.symbol)} checked />
+                                        <label htmlFor={currency.symbol}>
+                                            {currency.symbol} {currency.label}
+                                        </label>
+                                    </>
+                                :
+                                    <>
+                                        <input type='radio' name='currency' id={currency.symbol} onClick={() => this.context.setCurrency(currency.symbol)} />
+                                        <label htmlFor={currency.symbol}>
+                                            {currency.symbol} {currency.label}
+                                        </label>
+                                    </>
                             )
                         }
                     </div>
