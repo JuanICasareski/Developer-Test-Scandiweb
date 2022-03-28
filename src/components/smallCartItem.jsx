@@ -36,8 +36,15 @@ class SmallCartItem extends Component {
                         <div>
                             <p>Size:</p>
                             <div className='smallCartItemAttributes'>
-                                <button>Y</button>
-                                <button>N</button>
+                                <input type='radio' name='a' id='asd' />
+                                <label for='asd'>
+                                    <span>Y</span>
+                                </label>
+                                    
+                                <input type='radio' name='a' id='abc' />
+                                <label for='abc'>
+                                    <span>N</span>
+                                </label>
                             </div>
                         </div>
                     </div>
