@@ -22,45 +22,61 @@ function shallowEqual(object1, object2) {
 const CartContext = React.createContext({})
 
 export class CartProvider extends Component {
-    state = {
-        items: [],
-        currentCategory: 'all',
-        currency: '$',
-        isDimmed: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: [],
+            currentCategory: 'all',
+            currency: '$',
+            isDimmed: false
+        }
     }
-    
+
     // Implement all of this with this.setState()
     addItem = (itemId, itemInfo, selectedAttrs) => {
         
         if (this.state.items.length === 0) {
-            this.state.items.push({
-                itemId: itemId,
-                itemInfo: itemInfo,
-                selectedAttrs: selectedAttrs,
-                count: 1
+            this.setState({
+                items: [{
+                    itemId: itemId,
+                    itemInfo: itemInfo,
+                    selectedAttrs: selectedAttrs,
+                    count: 1
+                }]
             })
             return
         }
 
         for (const [i, item] of this.state.items.entries()) {
             if (item.itemId === itemId && shallowEqual(selectedAttrs, item.selectedAttrs)) {
-                this.state.items[i] = {
-                    itemId: itemId,
-                    itemInfo: itemInfo,
-                    selectedAttrs: selectedAttrs,
-                    count: item.count + 1
-                }
+                // Find workaround so that it's unmutated
+                this.state.items.splice(i, 1)
+                this.setState({
+                    items: [
+                        ...this.state.items,
+                        {
+                            itemId: itemId,
+                            itemInfo: itemInfo,
+                            selectedAttrs: selectedAttrs,
+                            count: item.count + 1                       
+                        }
+                    ]
+                })
+                return
             }
-            else {
-                this.state.items.push({
+        }
+
+        this.setState({
+            items: [
+                ...this.state.items,
+                {
                     itemId: itemId,
                     itemInfo: itemInfo,
                     selectedAttrs: selectedAttrs,
                     count: 1
-                })
-            }
-        }
-        console.log(this.state.items)
+                }
+            ]
+        })
     }
 
     setCategory = (category) => {
