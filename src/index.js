@@ -9,16 +9,16 @@ import CartContext, { CartProvider } from './context/cartContext'
 const rootElement = document.getElementById('root')
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <CartProvider>
-        <Navbar>
-          <Route exact path="/" render={props => <Index {...props}/>}/>
-          <Route path="/item/:item_id" render={props => <ProductDescriptionPage {...props} />} />
-        </Navbar>
-      </CartProvider>
-    </Switch>
-  </Router>,
+  <CartProvider>
+    <Router>
+      <Switch>
+          <Navbar>
+            <Route exact path="/" render={props => <Index {...props}/>}/>
+            <Route path="/item/:item_id" render={props => <ProductDescriptionPage {...props} />} />
+          </Navbar>
+      </Switch>
+    </Router>
+  </CartProvider>,
   rootElement
 );
 

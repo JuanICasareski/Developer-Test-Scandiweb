@@ -24,7 +24,7 @@ const CartContext = React.createContext({})
 export class CartProvider extends Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = JSON.parse(window.localStorage.getItem('state')) || {
             items: [],
             currentCategory: 'all',
             currency: '$',
@@ -32,6 +32,14 @@ export class CartProvider extends Component {
         }
     }
 
+    setState(state) {
+        window.localStorage.setItem('state', JSON.stringify({
+            ...JSON.parse(window.localStorage.getItem('state')),
+            ...state
+        }))
+        super.setState(state)
+    }
+    
     // Implement all of this with this.setState()
     addItem = (itemId, itemInfo, selectedAttrs) => {
         
