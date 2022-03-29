@@ -16,7 +16,8 @@ class ProductMainView extends Component {
             description: props.item.description,
             attrs: props.item.attributes,
             brand: props.item.brand,
-            inStock: props.item.inStock
+            inStock: props.item.inStock,
+            selectedAttrs: {}
         }
     }
 
@@ -24,6 +25,17 @@ class ProductMainView extends Component {
         this.setState({
             currentImage: newUrl
         })
+    }
+
+    setAttr = (id, attr) => {
+        if (this.state.selectedAttrs[id] !== attr) {
+            this.setState({
+                selectedAttrs: {
+                    ...this.state.selectedAttrs,
+                    [id]: attr
+                }
+            })
+        }
     }
 
     render = () => {
@@ -59,7 +71,7 @@ class ProductMainView extends Component {
                                     <div style={{display: 'flex', flexWrap: 'wrap', gap: '5px 5px'}}>
                                         {
                                             attr.items.map((a) => 
-                                                    <AttributeRadioButton attr={a} type={attr.type} name={attr.name}/>
+                                                    <AttributeRadioButton attr={a} type={attr.type} name={attr.name} id={attr.id} onClick={this.setAttr} />
                                             )
                                         }
                                     </div>
@@ -74,7 +86,7 @@ class ProductMainView extends Component {
 
                         {
                             this.state.inStock?
-                                <button className='addToCartButton' style={{width: '100%'}}>ADD TO CART</button>
+                                <button className='addToCartButton' style={{width: '100%'}} onClick={() => this.context.addItem(this.state.itemId , this.props.item, this.state.selectedAttrs)}>ADD TO CART</button>
                             :
                                 <button disabled className='addToCartButton' style={{width: '100%'}} title='🥲'>OUT OF STOCK</button>
                         }
