@@ -6,7 +6,14 @@ class SmallCartItem extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            itemCount: 1
+            itemId: props.item.id,
+            name: props.item.name,
+            brand: props.item.brand,
+            gallery: props.item.gallery,
+            attributes: props.item.attributes,
+            selectedAttrs: props.selectedAttrs,
+            prices: props.item.prices,
+            itemCount: props.count
         }
     }
 
@@ -25,28 +32,34 @@ class SmallCartItem extends Component {
                 <div className='smallCartItemLeft'>
                     <div>
                         <div className='smallCartItemName'>
-                            <p style={{marginBottom: 0, marginTop: 0}}>Apollo</p>
-                            <p style={{marginTop: 0}}>Running Short</p>
+                            <p style={{marginBottom: 0, marginTop: 0}}>{this.state.brand}</p>
+                            <p style={{marginTop: 0}}>{this.state.name}</p>
                         </div>
                         <div className='smallCartItemPricing'>
-                            <p style={{marginBottom: 0}}>$50.00</p>
+                            <p style={{marginBottom: 0}}>{this.state.prices[0].currency.symbol}{this.state.prices[0].amount}</p>
                         </div>  
                     </div>
                     <div className='smallCartItemDetails'>
-                        <div>
-                            <p>Size:</p>
-                            <div className='smallCartItemAttributes'>
-                                <input type='radio' name='a' id='asd' />
-                                <label for='asd'>
-                                    <span>Y</span>
-                                </label>
-                                    
-                                <input type='radio' name='a' id='abc' />
-                                <label for='abc'>
-                                    <span>N</span>
-                                </label>
-                            </div>
-                        </div>
+                        {
+                            this.state.attributes.map((attr, i) =>
+                                <div>
+                                    <p>{attr.name}:</p>
+                                    <div className='smallCartItemAttributes'>
+                                    {
+                                        attr.items.map((item, j) =>
+                                            <>
+                                                <input type='radio' name={attr.name + this.props.order} id={item.id + this.props.order + i} />
+                                                <label htmlFor={item.id + this.props.order + i}>
+                                                    <span>{item.displayValue}</span>
+                                                </label>
+                                            </>
+                                        )
+                                    }
+                                    </div>
+                                </div>
+
+                            )
+                        }
                     </div>
                 </div>
                 <div className='smallCartItemRight'>
@@ -56,7 +69,7 @@ class SmallCartItem extends Component {
                         <button onClick={() => this.decrementCount()}>-</button>
                     </div>
                     <div style={{width:'105px'}}>
-                        <img className='centerImagea' src='/dropdown-x512.svg' />
+                        <img src='/dropdown-x512.svg' />
                     </div>
                 </div>
             </div>

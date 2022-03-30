@@ -48,7 +48,11 @@ class NavbarIcons extends Component {
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>
                     <div className='navbarCartInfo' style={{width: '325px'}}>
-                        <SmallCartItem />
+                        {
+                            this.context.items.map((item, i) =>
+                                <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
+                            )
+                        }
                     </div>
                 </div>
             </div>
