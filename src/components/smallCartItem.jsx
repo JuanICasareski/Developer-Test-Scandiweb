@@ -47,20 +47,16 @@ class SmallCartItem extends Component {
                                     <div className='smallCartItemAttributes'>
                                     {
                                         attr.items.map((item, j) =>                                            
-                                            this.state.selectedAttrs[attr.id] === item.value?
-                                                <>
-                                                    <input checked type='radio' name={attr.name + this.props.order} id={item.id + this.props.order + i} />
-                                                    <label htmlFor={item.id + this.props.order + i}>
-                                                        <span>{item.displayValue}</span>
-                                                    </label>
-                                                </>
-                                            :
-                                                <>
-                                                    <input type='radio' name={attr.name + this.props.order} id={item.id + this.props.order + i} />
-                                                    <label htmlFor={item.id + this.props.order + i}>
-                                                        <span>{item.displayValue}</span>
-                                                    </label>
-                                                </>
+                                            <>
+                                                <input type='radio' 
+                                                        checked={this.state.selectedAttrs[attr.id] === item.value} 
+                                                        name={attr.name + this.props.order} 
+                                                        id={item.id + this.props.order + i} 
+                                                />
+                                                <label htmlFor={item.id + this.props.order + i}>
+                                                    <span>{item.value}</span>
+                                                </label>
+                                            </>
                                         )
                                     }
                                     </div>
