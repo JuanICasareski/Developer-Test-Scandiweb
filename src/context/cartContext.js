@@ -18,6 +18,13 @@ function shallowEqual(object1, object2) {
     return true;
 }
 
+window.localStorage.setItem(
+    'state', 
+    JSON.stringify({
+        currentCategory: 'all',
+        currency: '$'
+    })
+)
 
 const CartContext = React.createContext({})
 
