@@ -47,7 +47,7 @@ class SmallCartItem extends Component {
                                     <div className='smallCartItemAttributes'>
                                     {
                                         attr.items.map((item, j) =>                                            
-                                            this.state.selectedAttrs[attr.id] === item.displayValue?
+                                            this.state.selectedAttrs[attr.id] === item.value?
                                                 <>
                                                     <input checked type='radio' name={attr.name + this.props.order} id={item.id + this.props.order + i} />
                                                     <label htmlFor={item.id + this.props.order + i}>
