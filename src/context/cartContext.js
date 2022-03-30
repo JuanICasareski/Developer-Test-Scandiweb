@@ -87,6 +87,13 @@ export class CartProvider extends Component {
         })
     }
 
+    setAttribute = (position, newAttrKey, newAttr) => {
+        // Works, but should find more elegant way
+        let items =  [...this.state.items]
+        items.at(position).selectedAttrs[newAttrKey] = newAttr
+        this.setState({items: items})
+    }
+
     setCategory = (category) => {
         this.setState({currentCategory: category})
     }
@@ -101,7 +108,7 @@ export class CartProvider extends Component {
 
     render() {
         const {items, currentCategory, currency, isDimmed} = this.state
-        const {addItem, setCategory, setCurrency, toggleDimm} = this;
+        const {addItem, setCategory, setCurrency, toggleDimm, setAttribute} = this;
         return (
             <CartContext.Provider value={{
                 items,
@@ -111,7 +118,8 @@ export class CartProvider extends Component {
                 currency,
                 setCurrency,
                 isDimmed,
-                toggleDimm
+                toggleDimm,
+                setAttribute
             }}>
                 {this.props.children}
             </CartContext.Provider>

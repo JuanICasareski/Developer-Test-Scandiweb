@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './styles/smallCartItem.scss'
+import CartContext from '../context/cartContext'
 
 class SmallCartItem extends Component {
 
@@ -52,6 +53,7 @@ class SmallCartItem extends Component {
                                                         checked={this.state.selectedAttrs[attr.id] === item.value} 
                                                         name={attr.name + this.props.order} 
                                                         id={item.id + this.props.order + i} 
+                                                        onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
                                                 />
                                                 <label htmlFor={item.id + this.props.order + i}>
                                                     <span>{item.value}</span>
@@ -81,5 +83,7 @@ class SmallCartItem extends Component {
     }
 
 }
+
+SmallCartItem.contextType = CartContext
 
 export default SmallCartItem
