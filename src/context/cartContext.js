@@ -43,7 +43,7 @@ export class CartProvider extends Component {
     // Implement all of this with this.setState()
     addItem = (itemId, itemInfo, selectedAttrs) => {
         
-        if (this.state.items.length === 0) {
+        if (!this.state.items || this.state.items.length === 0) {
             this.setState({
                 items: [{
                     itemId: itemId,
