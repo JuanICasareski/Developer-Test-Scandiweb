@@ -23,8 +23,8 @@ window.localStorage.setItem(
     JSON.stringify({
         currentCategory: 'all',
         currency: '$',
-        isDimmed: false,
-        ...JSON.parse(window.localStorage.getItem('state'))
+        ...JSON.parse(window.localStorage.getItem('state')),
+        isDimmed: false
     })
 )
 
