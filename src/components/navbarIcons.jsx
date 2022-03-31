@@ -55,7 +55,7 @@ class NavbarIcons extends Component {
                         <div className='navbarCartSmallItems'>
                             <>
                                 {
-                                    this.context.items?
+                                    this.context.items && this.context.items.length !== 0?
                                         this.context.items.map((item, i) =>
                                             <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
                                         )
