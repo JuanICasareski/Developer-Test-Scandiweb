@@ -74,8 +74,8 @@ class SmallCartItem extends Component {
                         <p>{this.state.itemCount}</p>
                         <button onClick={() => this.decrementCount()}>-</button>
                     </div>
-                    <div style={{width:'105px'}}>
-                        <img src='/dropdown-x512.svg' />
+                    <div>
+                        <img style={{maxWidth:'105px', maxHeight: '100%'}} src={this.state.gallery[0]} />
                     </div>
                 </div>
             </div>
