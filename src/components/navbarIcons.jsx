@@ -60,7 +60,9 @@ class NavbarIcons extends Component {
                                             <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
                                         )
                                     :
-                                        <p>Placeholder 👍</p>
+                                        <div className='cartItemPlaceholder'>
+                                            <p> No Items <br></br> ¯\_(ツ)_/¯ </p>
+                                        </div>
                                 }
                             </>
                         </div>
