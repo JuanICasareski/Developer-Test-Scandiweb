@@ -51,7 +51,7 @@ export class CartProvider extends Component {
     
     // Implement all of this with this.setState()
     addItem = (itemId, itemInfo, selectedAttrs) => {
-        
+
         if (!this.state.items || this.state.items.length === 0) {
             this.setState({
                 items: [{
@@ -64,25 +64,15 @@ export class CartProvider extends Component {
             return
         }
 
-        for (const [i, item] of this.state.items.entries()) {
+        let items = [...this.state.items]
+        for (const [i, item] of items.entries()) {
             if (item.itemId === itemId && shallowEqual(selectedAttrs, item.selectedAttrs)) {
-                // Find workaround so that it's unmutated
-                this.state.items.splice(i, 1)
-                this.setState({
-                    items: [
-                        ...this.state.items,
-                        {
-                            itemId: itemId,
-                            itemInfo: itemInfo,
-                            selectedAttrs: selectedAttrs,
-                            count: item.count + 1                       
-                        }
-                    ]
-                })
+                items.at(i).count = items.at(i).count + 1
+                this.setState({items: items})
                 return
-            }
+            }    
         }
-
+        
         this.setState({
             items: [
                 ...this.state.items,
