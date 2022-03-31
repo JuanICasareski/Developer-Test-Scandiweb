@@ -47,7 +47,7 @@ class NavbarIcons extends Component {
                     <label htmlFor='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>
-                    <div className='navbarCartInfo' style={{width: '325px', border: '1px solid'}}>
+                    <div className='navbarCartInfo' style={{width: '325px'}}>
                         <div className='navbarCartTitle'>
                             My bag, n items
                         </div>

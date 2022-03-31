@@ -29,7 +29,7 @@ class SmallCartItem extends Component {
 
     render() {
         return (
-            <div className='smallCartItem' style={{outline: '1px solid'}}>
+            <div className='smallCartItem'>
                 <div className='smallCartItemLeft'>
                     <div>
                         <div className='smallCartItemName'>
