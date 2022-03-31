@@ -55,20 +55,29 @@ class Navbar extends Component {
                     width: '100%',
                     height: '80px',
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    position: 'relative'
                 }}>
-                    <div className='navbar' style={{marginLeft: '100px', height: '80px'}}>
-
-                    {
-                        this.state.items?
-                            this.state.items.map(category =>
-                                <NavbarCategory tag={category.name} onClick={() => this.context.setCategory(category.name)} key={category.name} />
-                            )
-                        : null
-                    }
+                    <div className='navbar' style={{height: '80px'}}>
+                    <div style={{marginLeft: '100px'}}>
+                        {
+                            this.state.items?
+                                this.state.items.map(category =>
+                                    <NavbarCategory tag={category.name} onClick={() => this.context.setCategory(category.name)} key={category.name} />
+                                )
+                            : null
+                        }
+                    </div>
 
                     </div>
-                    <div>
+
+                    
+                    <a href='/' className='navbarLogo'>
+                        <img src='/logo.svg' />
+                    </a>
+                    
+
+                    <div style={{}}>
                         {
                             this.state.currencies?
                                 <NavbarIcons currencies={this.state.currencies} />
