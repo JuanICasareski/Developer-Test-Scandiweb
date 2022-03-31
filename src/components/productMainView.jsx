@@ -86,7 +86,14 @@ class ProductMainView extends Component {
 
                         {
                             this.state.inStock?
-                                <button className='addToCartButton' style={{width: '100%'}} onClick={() => this.context.addItem(this.state.itemId , this.props.item, this.state.selectedAttrs)}>ADD TO CART</button>
+                                <button 
+                                    disabled={Object.keys(this.state.selectedAttrs).length !== this.state.attrs.length} 
+                                    className='addToCartButton' 
+                                    style={{width: '100%'}} 
+                                    onClick={() => this.context.addItem(this.state.itemId , this.props.item, this.state.selectedAttrs)}
+                                >
+                                    ADD TO CART
+                                </button>
                             :
                                 <button disabled className='addToCartButton' style={{width: '100%'}} title='🥲'>OUT OF STOCK</button>
                         }
