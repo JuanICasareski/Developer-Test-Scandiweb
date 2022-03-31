@@ -162,3 +162,87 @@
 .undimmed {
     animation: dimmAnimation2 .5s forwards;
 }
+
+.navbarCartSmallItems {
+    display: flex;
+    flex-direction: column;
+    gap: 42px 0;
+    align-items: center;
+}
+
+.navbarCartTitle {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 23px;
+    color: #1D1F22;
+}
+
+.navbarCartPricing {
+    display: flex;
+    justify-content: space-between;
+    width: 293px;
+    margin-left: 16px;
+    color: #1D1F22;
+    padding: 0;
+}
+
+.navbarCartPricingTag {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 42px;
+    margin-bottom: 35px;
+}
+
+.navbarCartPricingAmount {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 42px;
+    margin-bottom: 35px;
+}
+
+.navbarCartButtons {
+    width: 293px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 16px;
+}
+
+.navbarCartBagButton {
+    width: 140px;
+    height: 43px;
+    margin-bottom: 20px;
+    border-radius: 0;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+
+    color: #1D1F22;
+    border: 1px solid #1D1F22;
+    background-color: #FFFFFF;
+}
+
+.navbarCartCheckOutButton {
+    width: 140px;
+    height: 43px;
+    margin-bottom: 20px;
+    border-radius: 0;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+
+    color: #ffffff;
+    border: 1px solid #5ECE7B;
+    background-color: #5ECE7B;
+}

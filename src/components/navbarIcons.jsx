@@ -47,15 +47,37 @@ class NavbarIcons extends Component {
                     <label htmlFor='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
                     </label>
-                    <div className='navbarCartInfo' style={{width: '325px'}}>
-                        {
-                            this.context.items?
-                                this.context.items.map((item, i) =>
-                                    <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
-                                )
-                            :
-                                <p>Placeholder 👍</p>
-                        }
+                    <div className='navbarCartInfo' style={{width: '325px', border: '1px solid'}}>
+                        <div className='navbarCartTitle'>
+                            My bag, n items
+                        </div>
+
+                        <div className='navbarCartSmallItems'>
+                            <>
+                                {
+                                    this.context.items?
+                                        this.context.items.map((item, i) =>
+                                            <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
+                                        )
+                                    :
+                                        <p>Placeholder 👍</p>
+                                }
+                            </>
+                        </div>
+
+                        <div className='navbarCartPricing'>
+                            <h3 className='navbarCartPricingTag'>
+                                Total
+                            </h3>
+                            <h3 className='navbarCartPricingAmount'>
+                                Total 👍
+                            </h3>
+                        </div>
+
+                        <div className='navbarCartButtons'>
+                            <button className='navbarCartBagButton'>VIEW BAG</button>
+                            <button className='navbarCartCheckOutButton'>CHECK OUT</button>
+                        </div>
                     </div>
                 </div>
             </div>
