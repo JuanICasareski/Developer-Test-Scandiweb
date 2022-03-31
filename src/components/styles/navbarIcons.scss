@@ -229,6 +229,12 @@
     color: #1D1F22;
     border: 1px solid #1D1F22;
     background-color: #FFFFFF;
+
+    transition: transform .1s;
+}
+
+.navbarCartBagButton:active {
+    transform: scale(96%);
 }
 
 .navbarCartCheckOutButton {
@@ -245,4 +251,10 @@
     color: #ffffff;
     border: 1px solid #5ECE7B;
     background-color: #5ECE7B;
+
+    transition: transform .1s;
+}
+
+.navbarCartCheckOutButton:active {
+    transform: scale(96%);
 }
