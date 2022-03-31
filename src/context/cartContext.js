@@ -103,6 +103,17 @@ export class CartProvider extends Component {
         this.setState({items: items})
     }
 
+    setCount = (position, newCount) => {
+        let items = [...this.state.items]
+        items.at(position).count = newCount
+
+        if(newCount <= 0) {
+            items.splice(position, 1)
+        }
+
+        this.setState({items: items})
+    } 
+    
     setCategory = (category) => {
         this.setState({currentCategory: category})
     }
@@ -117,7 +128,7 @@ export class CartProvider extends Component {
 
     render() {
         const {items, currentCategory, currency, isDimmed} = this.state
-        const {addItem, setCategory, setCurrency, toggleDimm, setAttribute} = this;
+        const {addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount} = this;
         return (
             <CartContext.Provider value={{
                 items,
@@ -128,7 +139,8 @@ export class CartProvider extends Component {
                 setCurrency,
                 isDimmed,
                 toggleDimm,
-                setAttribute
+                setAttribute,
+                setCount
             }}>
                 {this.props.children}
             </CartContext.Provider>

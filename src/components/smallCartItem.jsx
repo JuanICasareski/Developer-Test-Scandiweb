@@ -19,11 +19,17 @@ class SmallCartItem extends Component {
     }
 
     incrementCount() {
-        this.setState({itemCount: this.state.itemCount+1})
+        this.context.setCount(this.props.order , this.state.itemCount + 1)
     }
 
     decrementCount() {
-        this.setState({itemCount: this.state.itemCount-1})
+        this.context.setCount(this.props.order , this.state.itemCount - 1)
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.count !== this.props.count) {
+            this.setState({itemCount: this.props.count})
+        }
     }
 
 
