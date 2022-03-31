@@ -45,7 +45,7 @@ class NavbarIcons extends Component {
                 <div className='navbarCart' style={{marginLeft: '20px'}}>
                     <input type='checkbox' id='cart' onClick={this.context.toggleDimm}/>
                     <label htmlFor='cart'>
-                        <img src='/shopping-cart-x512.svg' style={{height: '23px'}} />
+                        <img src='/shopping-cart-x512.svg' style={{height: '23px', marginTop: '3px'}} />
                     </label>
                     <div className='navbarCartInfo' style={{width: '325px'}}>
                         <div className='navbarCartTitle'>
