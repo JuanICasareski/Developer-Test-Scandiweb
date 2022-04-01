@@ -47,9 +47,21 @@ class NavbarIcons extends Component {
                     <label htmlFor='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px', marginTop: '2px'}} />
                     </label>
+
+                    {
+                        this.context.totalItemCount > 0?
+                            <div className='navbarCartTotalItemCount'>
+                                <span>
+                                    {this.context.totalItemCount}
+                                </span>
+                            </div>
+                        : 
+                            null
+                    }
+
                     <div className='navbarCartInfo' style={{width: '325px'}}>
                         <div className='navbarCartTitle'>
-                            My bag, n items
+                            My bag, {this.context.totalItemCount} items
                         </div>
 
                         <div className='navbarCartSmallItems'>

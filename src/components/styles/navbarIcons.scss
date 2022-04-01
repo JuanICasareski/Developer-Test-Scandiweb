@@ -261,3 +261,26 @@
     margin-bottom: 35px;
     text-align: center;
 }
+
+
+
+.navbarCartTotalItemCount {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background-color: #1D1F22;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+
+    top: 20px;
+    right: 90px;
+}

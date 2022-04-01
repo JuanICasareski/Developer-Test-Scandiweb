@@ -23,6 +23,7 @@ window.localStorage.setItem(
     JSON.stringify({
         currentCategory: 'all',
         currency: '$',
+        totalItemCount: 0,
         ...JSON.parse(window.localStorage.getItem('state')),
         isDimmed: false
     })
@@ -37,7 +38,8 @@ export class CartProvider extends Component {
             items: [],
             currentCategory: 'all',
             currency: '$',
-            isDimmed: false
+            isDimmed: false,
+            totalItemCount: 0
         }
     }
 
@@ -48,10 +50,16 @@ export class CartProvider extends Component {
         }))
         super.setState(state)
     }
-    
+
+    addItemCount = (plusCount) => {
+        this.setState({totalItemCount: this.state.totalItemCount + plusCount})
+    } 
+
     // Implement all of this with this.setState()
     addItem = (itemId, itemInfo, selectedAttrs) => {
 
+        this.addItemCount(1)
+        
         if (!this.state.items || this.state.items.length === 0) {
             this.setState({
                 items: [{
@@ -84,6 +92,7 @@ export class CartProvider extends Component {
                 }
             ]
         })
+        
     }
 
     setAttribute = (position, newAttrKey, newAttr) => {
@@ -94,6 +103,8 @@ export class CartProvider extends Component {
     }
 
     setCount = (position, newCount) => {
+        this.addItemCount(newCount - this.state.items.at(position).count)
+
         let items = [...this.state.items]
         items.at(position).count = newCount
 
@@ -117,7 +128,7 @@ export class CartProvider extends Component {
     }
 
     render() {
-        const {items, currentCategory, currency, isDimmed} = this.state
+        const {items, currentCategory, currency, isDimmed, totalItemCount} = this.state
         const {addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount} = this;
         return (
             <CartContext.Provider value={{
@@ -130,7 +141,8 @@ export class CartProvider extends Component {
                 isDimmed,
                 toggleDimm,
                 setAttribute,
-                setCount
+                setCount,
+                totalItemCount
             }}>
                 {this.props.children}
             </CartContext.Provider>
