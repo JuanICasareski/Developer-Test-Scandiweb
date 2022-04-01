@@ -10,7 +10,7 @@ class NavbarCategory extends Component {
     render() {
         return (
             <label>
-                <input type='radio' name='category'/>
+                <input type='radio' name='category' checked={this.props.checked} />
                 <span onClick={this.props.onClick}>
                     {this.props.tag.toUpperCase()}
                 </span>
