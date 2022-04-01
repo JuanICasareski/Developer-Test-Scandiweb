@@ -3,6 +3,7 @@ import ImgRadioButton from './imgRadioButton'
 import AttributeRadioButton from './attributeRadioButton'
 import styles from './styles/productMainView.scss'
 import CartContext from '../context/cartContext'
+import PriceTag from './priceTag'
 
 class ProductMainView extends Component {
     constructor(props){
@@ -81,7 +82,7 @@ class ProductMainView extends Component {
 
                         <div>
                             <p className='productSubtitle'>PRICE:</p>
-                            <p className='productPricing'>{this.state.prices[0].currency.symbol}{this.state.prices[0].amount}</p>
+                            <p className='productPricing'><PriceTag prices={this.state.prices} /></p>
                         </div>
 
                         {

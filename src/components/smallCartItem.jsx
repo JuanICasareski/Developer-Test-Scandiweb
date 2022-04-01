@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styles from './styles/smallCartItem.scss'
 import CartContext from '../context/cartContext'
+import PriceTag from './priceTag'
 
 class SmallCartItem extends Component {
 
@@ -43,7 +44,7 @@ class SmallCartItem extends Component {
                             <p style={{marginTop: 0}}>{this.state.name}</p>
                         </div>
                         <div className='smallCartItemPricing'>
-                            <p style={{marginBottom: 0}}>{this.state.prices[0].currency.symbol}{this.state.prices[0].amount}</p>
+                            <p style={{marginBottom: 0}}> <PriceTag prices={this.state.prices} /> </p>
                         </div>  
                     </div>
                     <div className='smallCartItemDetails'>

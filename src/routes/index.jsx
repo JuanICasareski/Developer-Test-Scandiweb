@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CartContext from '../context/cartContext'
 import styles from '../components/styles/index.scss'
+import PriceTag from '../components/priceTag'
+
 class Index extends Component {
     constructor(props) {
         super(props)
@@ -105,7 +107,7 @@ class Index extends Component {
                                                             {product.brand} {product.name}
                                                         </h3>
                                                         <h4 className='productIndexViewPricing' style={{marginTop: '2px'}}>
-                                                            {product.prices[0].currency.symbol}{product.prices[0].amount}
+                                                            <PriceTag prices={product.prices} />
                                                         </h4>
                                                     </div>
                                                 </div>     
