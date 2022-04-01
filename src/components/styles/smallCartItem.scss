@@ -111,6 +111,8 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 160%;
+
+    transition: transform .1s
 }
 
 .smallCartItemAttributes input[type=radio] {
@@ -121,6 +123,10 @@
     color: #1D1F22;
     background: #FFFFFF;
     border: 1px solid #1D1F22;
+}
+
+.smallCartItemAttributes input[type=radio]:active + label {
+    transform: scale(.96)
 }
 
 .smallCartItemDetails p {
