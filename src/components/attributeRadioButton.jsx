@@ -24,14 +24,8 @@ class AttributeRadioButton extends Component {
                             onClick={() => this.state.onClick(this.state.attrId, this.state.value)} 
                     />
                     <span style={{
-                            height: '25px',
-                            width: '25px',
-                            background : this.state.displayValue,
-                            borderRadius: '50%',
-                            display: 'inline-block',
-                            marginRight: '5px'
-                            }}
-                    >
+                        background: this.state.displayValue
+                    }}>
                     </span>
                 </label>
             )
