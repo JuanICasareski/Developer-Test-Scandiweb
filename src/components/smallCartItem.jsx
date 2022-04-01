@@ -52,23 +52,48 @@ class SmallCartItem extends Component {
                             this.state.attributes.map((attr, i) =>
                                 <div>
                                     <p>{attr.name}:</p>
-                                    <div className='smallCartItemAttributes'>
                                     {
-                                        attr.items.map((item, j) =>                                            
-                                            <>
-                                                <input type='radio' 
-                                                        checked={this.state.selectedAttrs[attr.id] === item.value} 
-                                                        name={attr.name + this.props.order} 
-                                                        id={item.id + this.props.order + i} 
-                                                        onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
-                                                />
-                                                <label htmlFor={item.id + this.props.order + i}>
-                                                    <span>{item.value}</span>
-                                                </label>
-                                            </>
-                                        )
+                                        attr.type === 'swatch'?
+                                            <div className='smallCartItemSwatch'>
+                                                {
+                                                    attr.items.map(item => 
+                                                        <>
+                                                            <label>
+                                                                <input 
+                                                                    type='radio'
+                                                                    checked={this.state.selectedAttrs[attr.id] === item.value}
+                                                                    name={attr.name + this.props.order} 
+                                                                    onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
+                                                                />
+                                                                <span 
+                                                                    style={{
+                                                                        background: item.displayValue
+                                                                    }}
+                                                                />
+                                                            </label>
+                                                        </>    
+                                                    )
+                                                }
+                                            </div>
+                                        :
+                                            <div className='smallCartItemAttributes'>
+                                            {
+                                                attr.items.map((item, j) =>                                            
+                                                    <>
+                                                        <input type='radio' 
+                                                                checked={this.state.selectedAttrs[attr.id] === item.value} 
+                                                                name={attr.name + this.props.order} 
+                                                                id={item.id + this.props.order + i} 
+                                                                onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
+                                                        />
+                                                        <label htmlFor={item.id + this.props.order + i}>
+                                                            <span>{item.value}</span>
+                                                        </label>
+                                                    </>
+                                                )
+                                            }
+                                            </div>
                                     }
-                                    </div>
                                 </div>
 
                             )

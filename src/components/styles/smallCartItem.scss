@@ -137,5 +137,37 @@
 .smallCartItemDetails {
     display: flex;
     flex-direction: column;
-    gap: 5px 0;
+    gap: 5px 5px;
+}
+
+
+
+.smallCartItemSwatch input[type=radio] + span {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: transform .1s;
+}
+
+.smallCartItemSwatch input[type=radio]:checked + span {
+    transform: scale(.80);
+}
+
+.smallCartItemSwatch input[type=radio]:hover + span {
+    transform: scale(105%);
+}
+
+.smallCartItemSwatch {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px 5px;
+}
+
+.smallCartItemSwatch input[type=radio] {
+    display: none
+}
+
+.smallCartItemSwatch span {
+    width: 24px;
+    height: 24px;
+    display: inline-block
 }
