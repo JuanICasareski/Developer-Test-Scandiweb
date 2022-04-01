@@ -46,7 +46,7 @@ class ProductMainView extends Component {
                         <div className='noScrollBar' style={{width: '80px', height: '515px', display: 'block', overflow: 'overlay', padding: '2px'}}>
                             {   
                                 this.state.gallery.map((i) => 
-                                    <div style={{height: '80px', width: '80px', paddingBottom: '40px', position: 'relative'}}>
+                                    <div style={{height: '80px', width: '80px', marginBottom: '40px', position: 'relative'}}>
                                         <ImgRadioButton url={i} onClick={this.setImage}/>
                                     </div>
                                 )
