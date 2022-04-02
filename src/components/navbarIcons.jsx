@@ -64,7 +64,7 @@ class NavbarIcons extends Component {
                             My bag, {this.context.totalItemCount} items
                         </div>
 
-                        <div className='navbarCartSmallItems'>
+                        <div className='navbarCartSmallItems noScrollBar'>
                             <>
                                 {
                                     this.context.items && this.context.items.length !== 0?

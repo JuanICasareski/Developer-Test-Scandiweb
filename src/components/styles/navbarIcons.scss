@@ -161,6 +161,8 @@
     flex-direction: column;
     gap: 42px 0;
     align-items: center;
+    max-height: 316px;
+    overflow: scroll;
 }
 
 .navbarCartTitle {
@@ -284,3 +286,9 @@
     top: 20px;
     right: 90px;
 }
+
+
+
+.noScrollBar::-webkit-scrollbar {
+    display: none;
+  }
