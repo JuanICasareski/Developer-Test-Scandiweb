@@ -67,7 +67,7 @@ class Navbar extends Component {
                                         tag={category.name} 
                                         onClick={() => this.context.setCategory(category.name)} 
                                         key={category.name} 
-                                        checked={category.name === this.context.currentCategory} 
+                                        checked={category.name === this.context.currentCategory && this.props.location.pathname === '/'} 
                                         location={{pathname: this.props.location.pathname}}
                                     />
                                 )
