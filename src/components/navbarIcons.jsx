@@ -26,19 +26,19 @@ class NavbarIcons extends Component {
                         {
                             this.state.currencies.map(currency =>
                                 currency.symbol === this.context.currency?
-                                    <>
-                                        <input type='radio' name='currency' id={currency.symbol} onClick={() => this.context.setCurrency(currency.symbol)} checked />
+                                    <React.Fragment key={currency.symbol}>
+                                        <input type='radio' name='currency' id={currency.symbol} onChange={() => this.context.setCurrency(currency.symbol)} checked />
                                         <label htmlFor={currency.symbol}>
                                             {currency.symbol} {currency.label}
                                         </label>
-                                    </>
+                                    </React.Fragment>
                                 :
-                                    <>
-                                        <input type='radio' name='currency' id={currency.symbol} onClick={() => this.context.setCurrency(currency.symbol)} />
+                                    <React.Fragment key={currency.symbol}>
+                                        <input type='radio' name='currency' id={currency.symbol} onChange={() => this.context.setCurrency(currency.symbol)} />
                                         <label htmlFor={currency.symbol}>
                                             {currency.symbol} {currency.label}
                                         </label>
-                                    </>
+                                    </React.Fragment>
                             )
                         }
                     </div>

@@ -11,8 +11,8 @@ class NavbarCategory extends Component {
         return (
             <label>
                 <a href={this.props.location.pathname !== '/'? '/': null}>
-                    <input type='radio' name='category' checked={this.props.checked} />
-                    <span onClick={this.props.onClick}>
+                    <input type='radio' name='category' checked={this.props.checked} onChange={this.props.onClick} />
+                    <span>
                         {this.props.tag.toUpperCase()}
                     </span>
                 </a>    

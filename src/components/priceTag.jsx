@@ -22,9 +22,9 @@ class PriceTag extends Component {
                 {
                     this.state.prices.map(price =>
                         price.currency.symbol === this.context.currency?
-                            <>
+                            <React.Fragment key={price.currency.symbol + price.amount}>
                                 {price.currency.symbol} {price.amount.toFixed(2)}                                
-                            </>                        
+                            </React.Fragment>                        
                         :
                             null
                     )     

@@ -46,7 +46,7 @@ class ProductMainView extends Component {
                         <div className='noScrollBar' style={{width: '80px', height: '515px', display: 'block', overflow: 'overlay', padding: '2px'}}>
                             {   
                                 this.state.gallery.map((i) => 
-                                    <div style={{height: '80px', width: '80px', marginBottom: '40px', position: 'relative'}}>
+                                    <div style={{height: '80px', width: '80px', marginBottom: '40px', position: 'relative'}} key={i + 'container'}>
                                         <ImgRadioButton url={i} onClick={this.setImage}/>
                                     </div>
                                 )
@@ -67,12 +67,12 @@ class ProductMainView extends Component {
                         <div style={{marginTop: '44px'}}>
                             {
                                 this.state.attrs.map((attr) =>
-                                    <div>
+                                    <div key={attr.id}>
                                         <p className='productSubtitle'>{attr.id.toUpperCase()}:</p>
                                         <div style={{display: 'flex', flexWrap: 'wrap', gap: '5px 5px', marginTop: '12px'}}>
                                             {
                                                 attr.items.map((a) => 
-                                                        <AttributeRadioButton attr={a} type={attr.type} name={attr.name} id={attr.id} onClick={this.setAttr} />
+                                                        <AttributeRadioButton attr={a} type={attr.type} name={attr.name} id={attr.id} key={a.id + attr.id} onClick={this.setAttr} />
                                                 )
                                             }
                                         </div>
