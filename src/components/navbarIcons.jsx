@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from './styles/navbarIcons.scss'
 import CartContext from '../context/cartContext'
 import SmallCartItem from './smallCartItem'
+import PriceTag from './priceTag'
 
 class NavbarIcons extends Component {
     constructor(props) {
@@ -84,7 +85,12 @@ class NavbarIcons extends Component {
                                 Total
                             </h3>
                             <h3 className='navbarCartPricingAmount'>
-                                Total 👍
+                                {
+                                    this.context.totalItemPrices?
+                                        <PriceTag prices={this.context.totalItemPrices} />
+                                    :
+                                        null
+                                }
                             </h3>
                         </div>
 

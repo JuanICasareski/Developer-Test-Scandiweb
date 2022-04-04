@@ -39,7 +39,8 @@ export class CartProvider extends Component {
             currentCategory: 'all',
             currency: '$',
             isDimmed: false,
-            totalItemCount: 0
+            totalItemCount: 0,
+            totalItemPrices: []
         }
     }
 
@@ -55,7 +56,32 @@ export class CartProvider extends Component {
         this.setState({totalItemCount: this.state.totalItemCount + plusCount})
     } 
 
-    // Implement all of this with this.setState()
+    componentDidUpdate = (prevProps, prevState) => {
+        if(prevState.items !== this.state.items) {
+            let totalPrices = Array(5).fill({
+                amount: 0,
+                currency: {
+                    label: null,
+                    symbol: null
+                }
+            })
+   
+            for(const [i, item] of this.state.items.entries()) {
+                for(const [j, price] of item.itemInfo.prices.entries()) {
+                    totalPrices[j] = {
+                        amount: totalPrices.at(j).amount + price.amount * item.count,
+                        currency: {
+                            ...price.currency
+                        }
+                    }
+                }  
+            }
+    
+            this.setState({totalItemPrices: totalPrices})
+        }
+
+    }
+    
     addItem = (itemId, itemInfo, selectedAttrs) => {
 
         this.addItemCount(1)
@@ -128,7 +154,7 @@ export class CartProvider extends Component {
     }
 
     render() {
-        const {items, currentCategory, currency, isDimmed, totalItemCount} = this.state
+        const {items, currentCategory, currency, isDimmed, totalItemCount, totalItemPrices} = this.state
         const {addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount} = this;
         return (
             <CartContext.Provider value={{
@@ -142,7 +168,8 @@ export class CartProvider extends Component {
                 toggleDimm,
                 setAttribute,
                 setCount,
-                totalItemCount
+                totalItemCount,
+                totalItemPrices
             }}>
                 {this.props.children}
             </CartContext.Provider>
