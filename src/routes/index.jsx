@@ -88,10 +88,11 @@ class Index extends Component {
                                     {
                                         category.products.map(product => 
                                             <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
+                                                key={product.id}
                                                 style={{
-                                                width: '386px',
-                                                height: '444px',
-                                                paddingTop: '16px'
+                                                    width: '386px',
+                                                    height: '444px',
+                                                    paddingTop: '16px'
                                                 }}
                                             >   
                                             
