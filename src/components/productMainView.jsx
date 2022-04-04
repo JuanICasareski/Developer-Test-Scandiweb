@@ -101,9 +101,9 @@ class ProductMainView extends Component {
                                     <button disabled className='addToCartButton' style={{width: '100%'}} title='🥲'>OUT OF STOCK</button>
                             }
                         </div>
-                        <div className='noScrollBar' style={{overflow: 'scroll'}}>
-                            <div className='productDescription' style={{maxHeight: '100%'}} dangerouslySetInnerHTML={{__html: this.state.description}}></div>
-                        </div>
+
+                        <div className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+
                     </div>
                 </div>
         )
