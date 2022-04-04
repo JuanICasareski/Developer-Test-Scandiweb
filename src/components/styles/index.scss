@@ -54,7 +54,12 @@
     margin-left: 302px;
     border-radius: 26px;
 
+    transition: transform .15s;
     animation: fadeIn .5s
+}
+
+.productIndexCartButton:active {
+    transform: scale(90%);
 }
 
 .productIndexView:hover > span {
