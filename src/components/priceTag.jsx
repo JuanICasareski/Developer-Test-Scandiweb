@@ -9,6 +9,13 @@ class PriceTag extends Component {
         }
     }
 
+    componentDidUpdate = (prevProps) => {
+        if(prevProps.prices !== this.props.prices) {
+            this.setState({prices: this.props.prices})
+        }
+    }
+
+
     render() {
         return (
             <>
