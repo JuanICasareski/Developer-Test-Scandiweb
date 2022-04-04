@@ -23,7 +23,7 @@ class PriceTag extends Component {
                     this.state.prices.map(price =>
                         price.currency.symbol === this.context.currency?
                             <>
-                                {price.currency.symbol} {price.amount}                                
+                                {price.currency.symbol} {price.amount.toFixed(2)}                                
                             </>                        
                         :
                             null
