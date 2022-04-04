@@ -28,6 +28,16 @@ class Index extends Component {
                             }
                             amount
                         }
+                        attributes {
+                            id
+                            name
+                            type
+                            items {
+                                displayValue
+                                value
+                                id
+                            }
+                        }
                     }
                 }
             }           
@@ -47,6 +57,19 @@ class Index extends Component {
             this.setState({items: data.data.categories})
         })
     }
+
+    addItemWithDefaultAttrs = (itemId, item) => {
+        let selectedAttrs = {}
+        for(let attr of item.attributes) {
+            selectedAttrs  = {
+                ...selectedAttrs,
+                [attr.id]: attr.items.at(0).value
+            }
+        }
+
+        this.context.addItem(itemId, item, selectedAttrs)
+    }
+
     render() {
         return (
             <div style={{
@@ -64,14 +87,15 @@ class Index extends Component {
                                 <div className='indexView' key={category}>
                                     {
                                         category.products.map(product => 
-                                            <a href={"/item/" + product.id} key={product.id}>
-                                                <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
-                                                    style={{
-                                                    width: '386px',
-                                                    height: '444px',
-                                                    paddingTop: '16px'
-                                                    }}
-                                                >   
+                                            <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
+                                                style={{
+                                                width: '386px',
+                                                height: '444px',
+                                                paddingTop: '16px'
+                                                }}
+                                            >   
+                                            
+                                                <a href={"/item/" + product.id} key={product.id + 'image'}>
                                                     <div className='outOfStockLabel'>
                                                         OUT OF STOCK
                                                     </div>
@@ -89,15 +113,18 @@ class Index extends Component {
                                                             }}
                                                         />   
                                                     </div>
-                                                    {
-                                                        product.inStock?
-                                                            <span className='productIndexCartButton'>
-                                                                <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
-                                                            </span>
-                                                        :
-                                                            null
+                                                </a> 
+                                                
+                                                {                                                   
+                                                    product.inStock?
+                                                        <span className='productIndexCartButton' onClick={() => this.addItemWithDefaultAttrs(product.id, product)}>
+                                                            <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
+                                                        </span>
+                                                    :
+                                                        null
+                                                }
 
-                                                    }
+                                                <a href={"/item/" + product.id} key={product.id + 'details'}>
                                                     <div style={{
                                                         marginLeft: '16px',
                                                         marginTop: '35px'
@@ -110,8 +137,8 @@ class Index extends Component {
                                                             <PriceTag prices={product.prices} />
                                                         </h4>
                                                     </div>
-                                                </div>     
-                                            </a>
+                                                </a>
+                                            </div>
                                         )                               
                                     }
                                 </div>
