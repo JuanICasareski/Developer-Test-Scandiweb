@@ -25,20 +25,18 @@ class NavbarIcons extends Component {
                     <div className='currencySelectorContent'>
                         {
                             this.state.currencies.map(currency =>
-                                currency.symbol === this.context.currency?
-                                    <React.Fragment key={currency.symbol}>
-                                        <input type='radio' name='currency' id={currency.symbol} onChange={() => this.context.setCurrency(currency.symbol)} checked />
-                                        <label htmlFor={currency.symbol}>
-                                            {currency.symbol} {currency.label}
-                                        </label>
-                                    </React.Fragment>
-                                :
-                                    <React.Fragment key={currency.symbol}>
-                                        <input type='radio' name='currency' id={currency.symbol} onChange={() => this.context.setCurrency(currency.symbol)} />
-                                        <label htmlFor={currency.symbol}>
-                                            {currency.symbol} {currency.label}
-                                        </label>
-                                    </React.Fragment>
+                                <React.Fragment key={currency.symbol}>
+                                    <input 
+                                        type='radio' 
+                                        name='currency' 
+                                        id={currency.symbol} 
+                                        onChange={() => this.context.setCurrency(currency.symbol)} 
+                                        checked={currency.symbol === this.context.currency}
+                                    />
+                                    <label htmlFor={currency.symbol}>
+                                        {currency.symbol} {currency.label}
+                                    </label>
+                                </React.Fragment>
                             )
                         }
                     </div>
