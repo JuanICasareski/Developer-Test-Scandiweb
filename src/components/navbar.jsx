@@ -92,7 +92,7 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <div className={this.context.isDimmed? 'dimmed' : 'undimmed'}>              
-                    <div>
+                    <div> 
                         {this.props.children}
                     </div>
                 </div>
