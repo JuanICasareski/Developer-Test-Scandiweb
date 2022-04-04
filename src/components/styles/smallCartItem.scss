@@ -38,6 +38,11 @@
     color: #1D1F22;
     text-align: center;
     font-size: 18px;
+    transition: transform .1s
+}
+
+.countSelector button:active {
+    transform: scale(.90);
 }
 
 .countSelector p {
