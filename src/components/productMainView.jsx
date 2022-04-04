@@ -39,7 +39,7 @@ class ProductMainView extends Component {
         }
     }
 
-    render = () => {
+    render() {
         return (
                 <div style={{width: '995px', height: '725px', display: 'flex', position: 'relative', margin: '0 auto', paddingTop: '80px'}}>
                     <div style={{width: '635px', height: '515px', display: 'flex'}}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-function shallowEqual(object1, object2) {
+const shallowEqual = (object1, object2) => {
     // A shallow equal works because the way
     // I implemented the selected attrs has no nested objs
 
@@ -56,7 +56,7 @@ export class CartProvider extends Component {
         this.setState({totalItemCount: this.state.totalItemCount + plusCount})
     } 
 
-    componentDidUpdate = (prevProps, prevState) => {
+    componentDidUpdate(prevProps, prevState) {
         if(prevState.items !== this.state.items) {
             let totalPrices = Array(5).fill({
                 amount: 0,

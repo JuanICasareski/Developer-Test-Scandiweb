@@ -15,7 +15,7 @@ class AttributeRadioButton extends Component {
         }
     }
     // props.type = null
-    render = () => {
+    render() {
         if (this.state.type === 'swatch') {
             return (
                 <label className='swatchButton'>

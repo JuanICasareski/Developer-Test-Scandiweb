@@ -19,11 +19,11 @@ class SmallCartItem extends Component {
         }
     }
 
-    incrementCount() {
+    incrementCount = () => {
         this.context.setCount(this.props.order , this.state.itemCount + 1)
     }
 
-    decrementCount() {
+    decrementCount = () => {
         this.context.setCount(this.props.order , this.state.itemCount - 1)
     }
 
