@@ -86,11 +86,10 @@ class BigCartItem extends Component {
                                                                 checked={this.state.selectedAttrs[attr.id] === item.value} 
                                                                 name={attr.name + this.props.order + 'big'} 
                                                                 id={`${item.id} ${this.props.order} ${i} big`} 
-                                                                onClick={() => console.log(1111111111111)}
+                                                                onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
                                                             />
                                                             <label 
-                                                                htmlFor={`${item.id}${this.props.order}${i}big`} 
-                                                                onClick={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
+                                                                htmlFor={`${item.id} ${this.props.order} ${i} big`} 
                                                             >
                                                                 <span>{item.value}</span>
                                                             </label>
