@@ -5,6 +5,7 @@ import ProductDescriptionPage from './routes/productDescriptionPage'
 import Index from './routes/index'
 import Navbar from './components/navbar'
 import CartContext, { CartProvider } from './context/cartContext'
+import Cart from './routes/cart'
 
 const rootElement = document.getElementById('root')
 
@@ -15,6 +16,7 @@ ReactDOM.render(
           <Navbar>
             <Route exact path="/" render={props => <Index {...props}/>}/>
             <Route path="/item/:item_id" render={props => <ProductDescriptionPage {...props} />} />
+            <Route path='/cart' render={props => <Cart {...props} />} />
           </Navbar>
       </Switch>
     </Router>
