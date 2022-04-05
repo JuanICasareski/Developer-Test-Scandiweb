@@ -93,7 +93,7 @@ class NavbarIcons extends Component {
                         </div>
 
                         <div className='navbarCartButtons'>
-                            <button className='navbarCartBagButton'>VIEW BAG</button>
+                            <a href='/cart'><button className='navbarCartBagButton'>VIEW BAG</button></a>
                             <button className='navbarCartCheckOutButton'>CHECK OUT</button>
                         </div>
                     </div>
