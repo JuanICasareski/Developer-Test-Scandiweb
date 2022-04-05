@@ -1,0 +1,26 @@
+
+.cart {
+    height: 552px;
+    margin-left: 100px;
+    padding-top: 80px;
+    margin-bottom: 40px;
+}
+
+.cart h1 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    color: #1D1F22;
+
+    margin-bottom: 60px;
+}
+
+.cart div::-webkit-scrollbar {
+    display: none;
+}
+
+.cart > div {
+    height: 442px;
+    overflow: scroll;
+}
