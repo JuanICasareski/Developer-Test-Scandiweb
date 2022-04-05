@@ -18,7 +18,9 @@ class Cart extends Component {
                     {
                         this.context.items && this.context.items.length !== 0?
                             this.context.items.map((item, i) =>
-                                <BigCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
+                                <React.Fragment key={i}>
+                                    <BigCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
+                                </React.Fragment>
                             )
                         :
                             null

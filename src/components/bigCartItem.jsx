@@ -51,14 +51,14 @@ class BigCartItem extends Component {
                         <div className='cartItemDetails'>
                             {
                                 this.state.attributes.map((attr, i) =>
-                                    <div>
+                                    <div key={attr}>
                                         <p>{attr.name}:</p>
                                         {
                                             attr.type === 'swatch'?
                                                 <div className='cartItemSwatch'>
                                                     {
-                                                        attr.items.map(item => 
-                                                            <>
+                                                        attr.items.map((item, j) => 
+                                                            <React.Fragment key={item + j}>
                                                                 <label>
                                                                     <input 
                                                                         type='radio'
@@ -72,7 +72,7 @@ class BigCartItem extends Component {
                                                                         }}
                                                                     />
                                                                 </label>
-                                                            </>    
+                                                            </React.Fragment>    
                                                         )
                                                     }
                                                 </div>
@@ -80,7 +80,7 @@ class BigCartItem extends Component {
                                                 <div className='cartItemAttributes'>
                                                 {
                                                     attr.items.map((item, j) =>                                            
-                                                        <>
+                                                        <React.Fragment key={item + j}>
                                                             <input 
                                                                 type='radio' 
                                                                 checked={this.state.selectedAttrs[attr.id] === item.value} 
@@ -93,7 +93,7 @@ class BigCartItem extends Component {
                                                             >
                                                                 <span>{item.value}</span>
                                                             </label>
-                                                        </>
+                                                        </React.Fragment>
                                                     )
                                                 }
                                                 </div>
