@@ -110,9 +110,9 @@ class BigCartItem extends Component {
                             <p>{this.state.itemCount}</p>
                             <button onClick={() => this.decrementCount()}>-</button>
                         </div>
-                        <div className='itemImage'>
-                            <img src={this.state.gallery.at(0)}/>
-                        </div>
+                       
+                        <img src={this.state.gallery.at(0)}/>
+                        
                     </div>
                 </div>
         )
