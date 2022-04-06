@@ -41,7 +41,7 @@ class ProductMainView extends Component {
 
     render() {
         return (
-                <div style={{width: '995px', height: '725px', display: 'flex', position: 'relative', margin: '0 auto', paddingTop: '80px'}}>
+                <div style={{width: '995px', minHeight: '725px', display: 'flex', position: 'relative', margin: '0 auto', paddingTop: '80px'}}>
                     <div style={{width: '635px', height: '515px', display: 'flex'}}>
                         <div className='noScrollBar' style={{width: '80px', height: '515px', display: 'block', overflow: 'overlay', padding: '2px'}}>
                             {   
@@ -59,7 +59,7 @@ class ProductMainView extends Component {
 
                         {/* vvvvv Descripcion y eso acá vvvvv */}
                     </div>
-                    <div style={{height: '515px', width: '290px', marginLeft: '100px', display: 'flex', flexDirection: 'column'}}>
+                    <div style={{minHeight: '515px', width: '290px', marginLeft: '100px', display: 'flex', flexDirection: 'column'}}>
                         <div>
                             <p className='productBrand' style={{marginBottom: '7px'}}><b>{this.state.brand}</b></p>
                             <p className='productName' style={{margin: '0px'}}>{this.state.name}</p> 
