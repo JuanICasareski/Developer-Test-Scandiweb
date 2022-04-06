@@ -25,3 +25,18 @@
     height: 442px;
     overflow: scroll;
 }
+
+.itemsPlaceholder {
+    padding-top: 50px;
+    width: 1100px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.itemsPlaceholder p {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+}

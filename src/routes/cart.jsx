@@ -23,7 +23,9 @@ class Cart extends Component {
                                 </React.Fragment>
                             )
                         :
-                            null
+                            <div className='itemsPlaceholder'>
+                                <p>Nothing to see here</p>
+                            </div>
                     }
                 </div>
             </div>
