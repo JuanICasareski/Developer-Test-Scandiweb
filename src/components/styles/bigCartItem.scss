@@ -156,3 +156,48 @@
 .cartItemSwatch input[type=radio]:hover + span {
     transform: scale(105%);
 }
+
+
+.cartItemImage {
+    position: relative;
+    width: 141px;
+    height: 185px;
+}
+
+.cartItemCarrousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartItemCarrousel div {
+    width: 24px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartItemCarrousel div > img {
+    width: 7px;
+    height: 13px;
+    transition: all .3s;
+    filter: drop-shadow(rgba(17, 17, 26, 0.05) 0px 1px 0px)
+}
+
+.cartItemCarrousel div:hover > img {
+    transform: scale(125%);
+    filter: drop-shadow(#5ECE7B 0px 1px 0px)
+}
+
+.cartItemCarrousel div:active > img {
+    transform: scale(90%);
+}

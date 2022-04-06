@@ -15,7 +15,8 @@ class BigCartItem extends Component {
             attributes: props.item.attributes,
             selectedAttrs: props.selectedAttrs,
             prices: props.item.prices,
-            itemCount: props.count
+            itemCount: props.count,
+            currentImageIndex: 0
         }
     }
 
@@ -31,6 +32,18 @@ class BigCartItem extends Component {
         if(prevProps.count !== this.props.count) {
             this.setState({itemCount: this.props.count})
         }
+    }
+
+    nextImage = () => {
+        this.setState({
+            currentImageIndex: this.state.currentImageIndex + 1
+        })
+    }
+
+    prevImage = () => {
+        this.setState({
+            currentImageIndex: this.state.currentImageIndex - 1
+        })
     }
 
     render() {
@@ -111,8 +124,27 @@ class BigCartItem extends Component {
                             <button onClick={() => this.decrementCount()}>-</button>
                         </div>
                        
-                        <img src={this.state.gallery.at(0)}/>
-                        
+                        <div className='cartItemImage'>
+                            <img style={{maxHeight: '100%', width: '100%'}} src={this.state.gallery.at(this.state.currentImageIndex)} />
+                            <div className='cartItemCarrousel'>
+                                {
+                                    this.state.currentImageIndex > 0?
+                                        <div onClick={() => this.prevImage()}>
+                                            <img src='prev-button.svg' />
+                                        </div>
+                                    :
+                                        <div style={{width: '24px', height: '100%'}}></div>
+                                }
+                                {
+                                    this.state.currentImageIndex < this.state.gallery.length-1?
+                                        <div onClick={() => this.nextImage()}>
+                                            <img src='next-button.svg' />
+                                        </div>
+                                    :
+                                        <div style={{width: '24px', height: '100%'}}></div>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
         )
