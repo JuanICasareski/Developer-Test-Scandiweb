@@ -102,7 +102,7 @@ class ProductMainView extends Component {
                             }
                         </div>
 
-                        <div style={{marginTop: '40px'}} className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+                        <div style={{marginTop: '40px', maxHeight: '300px', overflow: 'scroll'}} className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
 
                     </div>
                 </div>
