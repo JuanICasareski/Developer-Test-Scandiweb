@@ -13,6 +13,7 @@ class NavbarIcons extends Component {
     }
 
     render() {
+        console.log(this.context.items)
         return (
             <div className='navbarIcons' style={{marginTop: '25px', display: 'flex', marginRight: '100px'}}>
                 <div className='currencySelector' style={{}}>
@@ -70,7 +71,7 @@ class NavbarIcons extends Component {
                                 {
                                     this.context.items && this.context.items.length !== 0?
                                         this.context.items.map((item, i) =>
-                                            <React.Fragment key={item + i}>
+                                            <React.Fragment key={item.itemId + i}>
                                                 <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
                                             </React.Fragment>
                                         )
