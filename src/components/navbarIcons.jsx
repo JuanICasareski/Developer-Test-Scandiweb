@@ -45,18 +45,20 @@ class NavbarIcons extends Component {
                     <input type='checkbox' id='cart' onClick={this.context.toggleDimm}/>
                     <label htmlFor='cart'>
                         <img src='/shopping-cart-x512.svg' style={{height: '23px', marginTop: '2px'}} />
+                        <div>
+                        {
+                            this.context.totalItemCount > 0?
+                                <div className='navbarCartTotalItemCount'>
+                                    <span>
+                                        {this.context.totalItemCount}
+                                    </span>
+                                </div>
+                            : 
+                                null
+                        }
+                        </div>
                     </label>
 
-                    {
-                        this.context.totalItemCount > 0?
-                            <div className='navbarCartTotalItemCount'>
-                                <span>
-                                    {this.context.totalItemCount}
-                                </span>
-                            </div>
-                        : 
-                            null
-                    }
 
                     <div className='navbarCartInfo' style={{width: '325px'}}>
                         <div className='navbarCartTitle'>
