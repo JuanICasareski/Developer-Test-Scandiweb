@@ -48,8 +48,7 @@ class Navbar extends Component {
     render() {
         return (
             <div style={{
-                width: '100%',
-                height: '645px'
+                width: '100%'
             }}>
                 <div style={{
                     width: '100%',
@@ -91,8 +90,13 @@ class Navbar extends Component {
                         }
                     </div>
                 </div>
-                <div className={this.context.isDimmed? 'dimmed' : 'undimmed'}>              
-                    <div> 
+                <div className={this.context.isDimmed? 'dimmed' : 'undimmed'}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        minHeight: '100vh'
+                    }}>              
+                    <div style={{flex: 1}}>
                         {this.props.children}
                     </div>
                 </div>
