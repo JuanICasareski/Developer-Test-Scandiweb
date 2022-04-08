@@ -1,6 +1,5 @@
 
 .cart {
-    height: 552px;
     width: 1100px;
     padding-bottom: 80px;
     padding-top: 80px;
@@ -15,15 +14,6 @@
     color: #1D1F22;
 
     margin-bottom: 60px;
-}
-
-.cart div::-webkit-scrollbar {
-    display: none;
-}
-
-.cart > div {
-    height: 442px;
-    overflow: scroll;
 }
 
 .itemsPlaceholder {
