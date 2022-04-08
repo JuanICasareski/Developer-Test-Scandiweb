@@ -9,18 +9,18 @@ const shallowEqual = (object1, object2) => {
     const keys1 = Object.keys(object1);
     const keys2 = Object.keys(object2);
     if (keys1.length !== keys2.length) {
-      return false;
+        return false;
     }
     for (let key of keys1) {
-      if (object1[key] !== object2[key]) {
-        return false;
-      }
+        if (object1[key] !== object2[key]) {
+            return false;
+        }
     }
     return true;
 }
 
 window.localStorage.setItem(
-    'state', 
+    'state',
     JSON.stringify({
         currentCategory: 'all',
         currency: '$',
@@ -54,11 +54,11 @@ export class CartProvider extends Component {
     }
 
     addItemCount = (plusCount) => {
-        this.setState({totalItemCount: this.state.totalItemCount + plusCount})
-    } 
+        this.setState({ totalItemCount: this.state.totalItemCount + plusCount })
+    }
 
     componentDidUpdate(prevProps, prevState) {
-        if(prevState.items !== this.state.items) {
+        if (prevState.items !== this.state.items) {
             let totalPrices = Array(5).fill({
                 amount: 0,
                 currency: {
@@ -66,27 +66,27 @@ export class CartProvider extends Component {
                     symbol: null
                 }
             })
-   
-            for(let item of this.state.items) {
-                for(const [j, price] of item.itemInfo.prices.entries()) {
+
+            for (let item of this.state.items) {
+                for (const [j, price] of item.itemInfo.prices.entries()) {
                     totalPrices[j] = {
                         amount: totalPrices.at(j).amount + price.amount * item.count,
                         currency: {
                             ...price.currency
                         }
                     }
-                }  
+                }
             }
-    
-            this.setState({totalItemPrices: totalPrices})
+
+            this.setState({ totalItemPrices: totalPrices })
         }
 
     }
-    
+
     addItem = (itemId, itemInfo, selectedAttrs) => {
 
         this.addItemCount(1)
-        
+
         if (!this.state.items || this.state.items.length === 0) {
             this.setState({
                 items: [{
@@ -105,11 +105,11 @@ export class CartProvider extends Component {
         for (const [i, item] of items.entries()) {
             if (item.itemId === itemId && shallowEqual(selectedAttrs, item.selectedAttrs)) {
                 items.at(i).count = items.at(i).count + 1
-                this.setState({items: items})
+                this.setState({ items: items })
                 return
-            }    
+            }
         }
-        
+
         this.setState({
             items: [
                 ...this.state.items,
@@ -122,14 +122,14 @@ export class CartProvider extends Component {
                 }
             ]
         })
-        
+
     }
 
     setAttribute = (position, newAttrKey, newAttr) => {
         // Works, but should find more elegant way
-        let items =  [...this.state.items]
+        let items = [...this.state.items]
         items.at(position).selectedAttrs[newAttrKey] = newAttr
-        this.setState({items: items})
+        this.setState({ items: items })
     }
 
     setCount = (position, newCount) => {
@@ -138,28 +138,28 @@ export class CartProvider extends Component {
         let items = [...this.state.items]
         items.at(position).count = newCount
 
-        if(newCount <= 0) {
+        if (newCount <= 0) {
             items.splice(position, 1)
         }
 
-        this.setState({items: items})
-    } 
-    
+        this.setState({ items: items })
+    }
+
     setCategory = (category) => {
-        this.setState({currentCategory: category})
+        this.setState({ currentCategory: category })
     }
 
     setCurrency = (currency) => {
-        this.setState({currency: currency})
+        this.setState({ currency: currency })
     }
 
     toggleDimm = () => {
-        this.setState({isDimmed: !this.state.isDimmed})
+        this.setState({ isDimmed: !this.state.isDimmed })
     }
 
     render() {
-        const {items, currentCategory, currency, isDimmed, totalItemCount, totalItemPrices} = this.state
-        const {addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount} = this;
+        const { items, currentCategory, currency, isDimmed, totalItemCount, totalItemPrices } = this.state
+        const { addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount } = this;
         return (
             <CartContext.Provider value={{
                 items,

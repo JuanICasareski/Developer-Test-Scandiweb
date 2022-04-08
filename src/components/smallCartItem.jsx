@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import styles from './styles/smallCartItem.scss'
-import CartContext from '../context/cartContext'
 import PriceTag from './priceTag'
+import CartContext from '../context/cartContext'
+import styles from './styles/smallCartItem.scss'
 
 class SmallCartItem extends Component {
 
@@ -20,16 +20,16 @@ class SmallCartItem extends Component {
     }
 
     incrementCount = () => {
-        this.context.setCount(this.props.order , this.state.itemCount + 1)
+        this.context.setCount(this.props.order, this.state.itemCount + 1)
     }
 
     decrementCount = () => {
-        this.context.setCount(this.props.order , this.state.itemCount - 1)
+        this.context.setCount(this.props.order, this.state.itemCount - 1)
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.count !== this.props.count) {
-            this.setState({itemCount: this.props.count})
+        if (prevProps.count !== this.props.count) {
+            this.setState({ itemCount: this.props.count })
         }
     }
 
@@ -40,12 +40,12 @@ class SmallCartItem extends Component {
                 <div className='smallCartItemLeft'>
                     <div>
                         <div className='smallCartItemName'>
-                            <p style={{marginBottom: 0, marginTop: 0}}>{this.state.brand}</p>
-                            <p style={{marginTop: 0}}>{this.state.name}</p>
+                            <p style={{ marginBottom: 0, marginTop: 0 }}>{this.state.brand}</p>
+                            <p style={{ marginTop: 0 }}>{this.state.name}</p>
                         </div>
                         <div className='smallCartItemPricing'>
-                            <p style={{marginBottom: 0}}> <PriceTag prices={this.state.prices} /> </p>
-                        </div>  
+                            <p style={{ marginBottom: 0 }}> <PriceTag prices={this.state.prices} /> </p>
+                        </div>
                     </div>
                     <div className='smallCartItemDetails'>
                         {
@@ -53,45 +53,45 @@ class SmallCartItem extends Component {
                                 <div key={attr + i}>
                                     <p>{attr.name}:</p>
                                     {
-                                        attr.type === 'swatch'?
+                                        attr.type === 'swatch' ?
                                             <div className='smallCartItemSwatch'>
                                                 {
-                                                    attr.items.map((item, j) => 
+                                                    attr.items.map((item, j) =>
                                                         <React.Fragment key={item + j}>
                                                             <label>
-                                                                <input 
+                                                                <input
                                                                     type='radio'
                                                                     checked={this.state.selectedAttrs[attr.id] === item.value}
-                                                                    name={attr.name + this.props.order} 
+                                                                    name={attr.name + this.props.order}
                                                                     onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
                                                                 />
-                                                                <span 
+                                                                <span
                                                                     style={{
                                                                         background: item.displayValue
                                                                     }}
                                                                 />
                                                             </label>
-                                                        </React.Fragment>    
+                                                        </React.Fragment>
                                                     )
                                                 }
                                             </div>
-                                        :
+                                            :
                                             <div className='smallCartItemAttributes'>
-                                            {
-                                                attr.items.map((item, j) =>                                            
-                                                    <React.Fragment key={item + j}>
-                                                        <input type='radio' 
-                                                                checked={this.state.selectedAttrs[attr.id] === item.value} 
-                                                                name={attr.name + this.props.order} 
-                                                                id={item.id + this.props.order + i} 
+                                                {
+                                                    attr.items.map((item, j) =>
+                                                        <React.Fragment key={item + j}>
+                                                            <input type='radio'
+                                                                checked={this.state.selectedAttrs[attr.id] === item.value}
+                                                                name={attr.name + this.props.order}
+                                                                id={item.id + this.props.order + i}
                                                                 onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
-                                                        />
-                                                        <label htmlFor={item.id + this.props.order + i}>
-                                                            <span>{item.value}</span>
-                                                        </label>
-                                                    </React.Fragment>
-                                                )
-                                            }
+                                                            />
+                                                            <label htmlFor={item.id + this.props.order + i}>
+                                                                <span>{item.value}</span>
+                                                            </label>
+                                                        </React.Fragment>
+                                                    )
+                                                }
                                             </div>
                                     }
                                 </div>
@@ -107,7 +107,7 @@ class SmallCartItem extends Component {
                         <button onClick={() => this.decrementCount()}>-</button>
                     </div>
                     <div>
-                        <img style={{maxWidth:'105px', maxHeight: '100%'}} src={this.state.gallery[0]}  alt='item image' />
+                        <img style={{ maxWidth: '105px', maxHeight: '100%' }} src={this.state.gallery[0]} alt='item image' />
                     </div>
                 </div>
             </div>

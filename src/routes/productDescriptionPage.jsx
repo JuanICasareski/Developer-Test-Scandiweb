@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ProductMainView from '../components/productMainView'
 
 class ProductDescriptionPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -54,22 +54,22 @@ class ProductDescriptionPage extends Component {
         }).then(response => {
             return response.json()
         }).then(data => {
-            this.setState({item: data.data.product})
+            this.setState({ item: data.data.product })
         })
-    } 
+    }
 
     render = () => {
         return (
             <div>
                 {
-                    this.state.item?
-                    <ProductMainView item={this.state.item}/>
-                    :null
+                    this.state.item ?
+                        <ProductMainView item={this.state.item} />
+                        : null
                 }
             </div>
         )
     }
-    
+
 
 }
 

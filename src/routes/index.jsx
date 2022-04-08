@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import PriceTag from '../components/priceTag'
 import CartContext from '../context/cartContext'
 import styles from '../components/styles/index.scss'
-import PriceTag from '../components/priceTag'
 
 class Index extends Component {
     constructor(props) {
@@ -54,14 +54,14 @@ class Index extends Component {
         }).then(response => {
             return response.json()
         }).then(data => {
-            this.setState({items: data.data.categories})
+            this.setState({ items: data.data.categories })
         })
     }
 
     addItemWithDefaultAttrs = (itemId, item) => {
         let selectedAttrs = {}
-        for(let attr of item.attributes) {
-            selectedAttrs  = {
+        for (let attr of item.attributes) {
+            selectedAttrs = {
                 ...selectedAttrs,
                 [attr.id]: attr.items.at(0).value
             }
@@ -81,71 +81,85 @@ class Index extends Component {
             >
                 <h1 className='categoryTitle'>{this.context.currentCategory}</h1>
                 {
-                    this.state.items?
+                    this.state.items ?
                         this.state.items.map(category =>
-                            category.name === this.context.currentCategory?
+                            category.name === this.context.currentCategory ?
                                 <div className='indexView' key={category}>
                                     {
-                                        category.products.map(product => 
-                                            <div className={product.inStock? 'productIndexView' : 'productIndexView outOfStock'} 
+                                        category.products.map(product =>
+                                            <div 
+                                                className={product.inStock ? 'productIndexView' : 'productIndexView outOfStock'}
                                                 key={product.id}
                                                 style={{
                                                     width: '386px',
                                                     height: '444px',
                                                     paddingTop: '16px'
                                                 }}
-                                            >   
-                                            
+                                            >
+
                                                 <a href={"/item/" + product.id} key={product.id + 'image'}>
                                                     <div className='outOfStockLabel'>
                                                         OUT OF STOCK
                                                     </div>
-                                                    <div style={{
-                                                        height: '330px',
-                                                        width: '386px',
-                                                        position: 'relative'
+                                                    <div
+                                                        style={{
+                                                            height: '330px',
+                                                            width: '386px',
+                                                            position: 'relative'
                                                         }}
                                                     >
-                                                        <img src={product.gallery[0]}
-                                                            className='centerImage' 
+                                                        <img 
+                                                            src={product.gallery[0]}
+                                                            className='centerImage'
                                                             style={{
                                                                 maxHeight: '330px',
                                                                 maxWidth: '354px'
                                                             }}
-                                                        />   
+                                                        />
                                                     </div>
-                                                </a> 
-                                                
-                                                {                                                   
-                                                    product.inStock?
-                                                        <span className='productIndexCartButton' onClick={() => this.addItemWithDefaultAttrs(product.id, product)}>
-                                                            <img className='centerImage' src='/shopping-cart-x512.svg' style={{width: '24px', height: '24px'}} />
+                                                </a>
+
+                                                {
+                                                    product.inStock ?
+                                                        <span 
+                                                            className='productIndexCartButton' 
+                                                            onClick={() => this.addItemWithDefaultAttrs(product.id, product)}
+                                                        >
+                                                            <img 
+                                                                className='centerImage' 
+                                                                src='/shopping-cart-x512.svg' 
+                                                                style={{
+                                                                    width: '24px', 
+                                                                    height: '24px' 
+                                                                }} 
+                                                            />
                                                         </span>
-                                                    :
+                                                        :
                                                         null
                                                 }
 
                                                 <a href={"/item/" + product.id} key={product.id + 'details'}>
-                                                    <div style={{
-                                                        marginLeft: '16px',
-                                                        marginTop: '35px'
+                                                    <div 
+                                                        style={{
+                                                            marginLeft: '16px',
+                                                            marginTop: '35px'
                                                         }}
                                                     >
-                                                        <h3 className='productIndexViewName' style={{marginBottom: 0}}>
+                                                        <h3 className='productIndexViewName' style={{ marginBottom: 0 }}>
                                                             {product.brand} {product.name}
                                                         </h3>
-                                                        <h4 className='productIndexViewPricing' style={{marginTop: '2px'}}>
+                                                        <h4 className='productIndexViewPricing' style={{ marginTop: '2px' }}>
                                                             <PriceTag prices={product.prices} />
                                                         </h4>
                                                     </div>
                                                 </a>
                                             </div>
-                                        )                               
+                                        )
                                     }
                                 </div>
-                            : null
+                                : null
                         )
-                    : null
+                        : null
                 }
             </div>
         )

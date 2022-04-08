@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import styles from './styles/navbar.scss'
-import CartContext from '../context/cartContext'
 import NavbarIcons from './navbarIcons'
 import NavbarCategory from './navbarCategory'
+import CartContext from '../context/cartContext'
+import styles from './styles/navbar.scss'
 
 class Navbar extends Component {
     constructor(props) {
@@ -42,61 +42,65 @@ class Navbar extends Component {
                 currencies: data.data.currencies
             })
         })
-        
+
     }
 
     render() {
         return (
-            <div style={{
-                width: '100%'
-            }}>
-                <div style={{
-                    width: '100%',
-                    height: '80px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    position: 'relative'
-                }}>
-                    <div className='navbar' style={{height: '80px'}}>
-                    <div style={{marginLeft: '100px'}}>
-                        {
-                            this.state.items?
-                                this.state.items.map(category =>
-                                    <NavbarCategory 
-                                        tag={category.name} 
-                                        onClick={() => this.context.setCategory(category.name)} 
-                                        key={category.name} 
-                                        checked={category.name === this.context.currentCategory && this.props.location.pathname === '/'} 
-                                        location={{pathname: this.props.location.pathname}}
-                                    />
-                                )
-                            : null
-                        }
-                    </div>
+            <div 
+                style={{
+                    width: '100%'
+                }}
+            >
+                <div 
+                    style={{
+                        width: '100%',
+                        height: '80px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        position: 'relative'
+                    }}
+                >
+                    <div className='navbar' style={{ height: '80px' }}>
+                        <div style={{ marginLeft: '100px' }}>
+                            {
+                                this.state.items ?
+                                    this.state.items.map(category =>
+                                        <NavbarCategory
+                                            tag={category.name}
+                                            onClick={() => this.context.setCategory(category.name)}
+                                            key={category.name}
+                                            checked={category.name === this.context.currentCategory && this.props.location.pathname === '/'}
+                                            location={{ pathname: this.props.location.pathname }}
+                                        />
+                                    )
+                                    : null
+                            }
+                        </div>
 
                     </div>
 
-                    
+
                     <a href='/' className='navbarLogo'>
                         <img src='/logo.svg' alt='logo' />
                     </a>
-                    
 
-                    <div style={{}}>
+
+                    <div>
                         {
-                            this.state.currencies?
+                            this.state.currencies ?
                                 <NavbarIcons currencies={this.state.currencies} />
-                            : null
+                                : null
                         }
                     </div>
                 </div>
-                <div className={this.context.isDimmed? 'dimmed' : 'undimmed'}
+                <div className={this.context.isDimmed ? 'dimmed' : 'undimmed'}
                     style={{
                         display: 'flex',
                         flexDirection: 'column',
                         minHeight: '100vh'
-                    }}>              
-                    <div style={{flex: 1}}>
+                    }}>
+                    <div style={{ flex: 1 }}>
                         {this.props.children}
                     </div>
                 </div>

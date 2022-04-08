@@ -10,8 +10,8 @@ class PriceTag extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.prices !== this.props.prices) {
-            this.setState({prices: this.props.prices})
+        if (prevProps.prices !== this.props.prices) {
+            this.setState({ prices: this.props.prices })
         }
     }
 
@@ -21,17 +21,17 @@ class PriceTag extends Component {
             <>
                 {
                     this.state.prices.map(price =>
-                        price.currency.symbol === this.context.currency?
+                        price.currency.symbol === this.context.currency ?
                             <React.Fragment key={price.currency.symbol + price.amount}>
-                                {price.currency.symbol} {price.amount.toFixed(2)}                                
-                            </React.Fragment>                        
-                        :
+                                {price.currency.symbol} {price.amount.toFixed(2)}
+                            </React.Fragment>
+                            :
                             null
-                    )     
+                    )
                 }
             </>
         )
-    }   
+    }
 }
 
 PriceTag.contextType = CartContext

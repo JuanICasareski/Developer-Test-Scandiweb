@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import styles from './styles/navbarIcons.scss'
-import CartContext from '../context/cartContext'
 import SmallCartItem from './smallCartItem'
 import PriceTag from './priceTag'
+import CartContext from '../context/cartContext'
+import styles from './styles/navbarIcons.scss'
 
 class NavbarIcons extends Component {
     constructor(props) {
@@ -15,23 +15,23 @@ class NavbarIcons extends Component {
     render() {
         console.log(this.context.items)
         return (
-            <div className='navbarIcons' style={{marginTop: '25px', display: 'flex', marginRight: '100px'}}>
+            <div className='navbarIcons' style={{ marginTop: '25px', display: 'flex', marginRight: '100px' }}>
                 <div className='currencySelector' style={{}}>
                     <button className='currencySelectorButton'>
                         <div>
                             {this.context.currency}
-                            <img src='/dropdown-x512.svg' alt='dropdown' height='10px'/>
+                            <img src='/dropdown-x512.svg' alt='dropdown' height='10px' />
                         </div>
                     </button>
                     <div className='currencySelectorContent'>
                         {
                             this.state.currencies.map(currency =>
                                 <React.Fragment key={currency.symbol}>
-                                    <input 
-                                        type='radio' 
-                                        name='currency' 
-                                        id={currency.symbol} 
-                                        onChange={() => this.context.setCurrency(currency.symbol)} 
+                                    <input
+                                        type='radio'
+                                        name='currency'
+                                        id={currency.symbol}
+                                        onChange={() => this.context.setCurrency(currency.symbol)}
                                         checked={currency.symbol === this.context.currency}
                                     />
                                     <label htmlFor={currency.symbol}>
@@ -42,26 +42,37 @@ class NavbarIcons extends Component {
                         }
                     </div>
                 </div>
-                <div className='navbarCart' style={{marginLeft: '20px'}}>
-                    <input type='checkbox' id='cart' onClick={this.context.toggleDimm}/>
+                <div className='navbarCart' style={{ marginLeft: '20px' }}>
+                    <input
+                        type='checkbox' 
+                        id='cart' 
+                        onClick={this.context.toggleDimm} 
+                    />
                     <label htmlFor='cart'>
-                        <img src='/shopping-cart-x512.svg'  alt='shopping cart' style={{height: '23px', marginTop: '2px'}} />
+                        <img
+                            src='/shopping-cart-x512.svg'
+                            alt='shopping cart'
+                            style={{
+                                height: '23px',
+                                marginTop: '2px'
+                            }}
+                        />
                         <div>
-                        {
-                            this.context.totalItemCount > 0?
-                                <div className='navbarCartTotalItemCount'>
-                                    <span>
-                                        {this.context.totalItemCount}
-                                    </span>
-                                </div>
-                            : 
-                                null
-                        }
+                            {
+                                this.context.totalItemCount > 0 ?
+                                    <div className='navbarCartTotalItemCount'>
+                                        <span>
+                                            {this.context.totalItemCount}
+                                        </span>
+                                    </div>
+                                    :
+                                    null
+                            }
                         </div>
                     </label>
 
 
-                    <div className='navbarCartInfo' style={{width: '325px'}}>
+                    <div className='navbarCartInfo' style={{ width: '325px' }}>
                         <div className='navbarCartTitle'>
                             My bag, {this.context.totalItemCount} items
                         </div>
@@ -69,13 +80,18 @@ class NavbarIcons extends Component {
                         <div className='navbarCartSmallItems noScrollBar'>
                             <>
                                 {
-                                    this.context.items && this.context.items.length !== 0?
+                                    this.context.items && this.context.items.length !== 0 ?
                                         this.context.items.map((item, i) =>
                                             <React.Fragment key={item.itemUUID}>
-                                                <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
+                                                <SmallCartItem
+                                                    item={item.itemInfo} 
+                                                    selectedAttrs={item.selectedAttrs} 
+                                                    count={item.count} 
+                                                    order={i} 
+                                                />
                                             </React.Fragment>
                                         )
-                                    :
+                                        :
                                         <div className='cartItemPlaceholder'>
                                             <p> No Items <br></br> ¯\_(ツ)_/¯ </p>
                                         </div>
@@ -89,16 +105,16 @@ class NavbarIcons extends Component {
                             </h3>
                             <h3 className='navbarCartPricingAmount'>
                                 {
-                                    this.context.totalItemPrices?
+                                    this.context.totalItemPrices ?
                                         <PriceTag prices={this.context.totalItemPrices} />
-                                    :
+                                        :
                                         null
                                 }
                             </h3>
                         </div>
 
                         <div className='navbarCartButtons'>
-                            <a href='/cart'><button className='navbarCartBagButton'>VIEW BAG</button></a>
+                            <a href='/cart'> <button className='navbarCartBagButton'>VIEW BAG</button> </a>
                             <button className='navbarCartCheckOutButton'>CHECK OUT</button>
                         </div>
                     </div>

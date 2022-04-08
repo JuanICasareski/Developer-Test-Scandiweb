@@ -6,7 +6,7 @@ class AttributeRadioButton extends Component {
         super(props)
         this.state = {
             type: props.type,
-            displayValue: props.attr.displayValue, 
+            displayValue: props.attr.displayValue,
             value: props.attr.value,
             id: props.attr.id,
             name: props.name,
@@ -19,23 +19,27 @@ class AttributeRadioButton extends Component {
         if (this.state.type === 'swatch') {
             return (
                 <label className='swatchButton'>
-                    <input type='radio' 
-                            name={this.state.name} 
-                            onClick={() => this.state.onClick(this.state.attrId, this.state.value)} 
+                    <input 
+                        type='radio'
+                        name={this.state.name}
+                        onClick={() => this.state.onClick(this.state.attrId, this.state.value)}
                     />
-                    <span style={{
-                        background: this.state.displayValue
-                    }}>
+                    <span 
+                        style={{
+                            background: this.state.displayValue
+                        }}
+                    >
                     </span>
                 </label>
             )
         }
-        else {   
-            return(
+        else {
+            return (
                 <label className='attributeButton'>
-                    <input type='radio' 
-                            name={this.state.name} 
-                            onClick={() => this.state.onClick(this.state.attrId, this.state.value)} 
+                    <input 
+                        type='radio'
+                        name={this.state.name}
+                        onClick={() => this.state.onClick(this.state.attrId, this.state.value)}
                     />
                     <span>
                         {this.state.value}

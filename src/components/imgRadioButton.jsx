@@ -10,10 +10,10 @@ class ImgRadioButton extends Component {
         return (
             <label className='imgRadioButton'>
                 <input type='radio' name='ImageSlider'></input>
-                <img 
+                <img
                     src={this.props.url}
                     key={this.props.url}
-                    style={{maxHeight: '100%', maxWidth: '100%'}}
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                     onClick={() => this.props.onClick(this.props.url)}
                     className='centerImage'
                     alt='slider image'
