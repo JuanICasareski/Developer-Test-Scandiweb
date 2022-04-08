@@ -71,7 +71,7 @@ class NavbarIcons extends Component {
                                 {
                                     this.context.items && this.context.items.length !== 0?
                                         this.context.items.map((item, i) =>
-                                            <React.Fragment key={item.itemId + i}>
+                                            <React.Fragment key={item.itemUUID}>
                                                 <SmallCartItem item={item.itemInfo} selectedAttrs={item.selectedAttrs} count={item.count} order={i} />
                                             </React.Fragment>
                                         )

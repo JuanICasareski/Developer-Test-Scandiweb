@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const shallowEqual = (object1, object2) => {
@@ -91,7 +92,9 @@ export class CartProvider extends Component {
                 items: [{
                     itemId: itemId,
                     itemInfo: itemInfo,
+                    itemUUID: uuidv4(),
                     selectedAttrs: selectedAttrs,
+
                     count: 1
                 }]
             })
@@ -113,6 +116,7 @@ export class CartProvider extends Component {
                 {
                     itemId: itemId,
                     itemInfo: itemInfo,
+                    itemUUID: uuidv4(),
                     selectedAttrs: selectedAttrs,
                     count: 1
                 }
