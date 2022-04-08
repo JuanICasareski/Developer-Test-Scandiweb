@@ -41,35 +41,33 @@ class ProductMainView extends Component {
 
     render() {
         return (
-                <div style={{width: '995px', minHeight: '725px', display: 'flex', position: 'relative', margin: '0 auto', paddingTop: '80px'}}>
-                    <div style={{width: '635px', height: '515px', display: 'flex'}}>
-                        <div className='noScrollBar' style={{width: '80px', height: '515px', display: 'block', overflow: 'overlay', padding: '2px'}}>
+                <div className='productContainer'>
+                    <div className='productContainerLeft'>
+                        <div className='imageSliderContainer noScrollBar'>
                             {   
                                 this.state.gallery.map((i) => 
-                                    <div style={{height: '80px', width: '80px', marginBottom: '40px', position: 'relative'}} key={i + 'container'}>
+                                    <div className='imageSliderImage' key={i + 'container'}>
                                         <ImgRadioButton url={i} onClick={this.setImage}/>
                                     </div>
                                 )
                             }
                         </div>
-                        <div style={{width: '515px', height: '515px', marginLeft: '40px', position: 'relative'}}>
+                        <div className='productImageContainer'>
                             <img className='centerImage' src={this.state.currentImage}></img>
                         </div>
-
-
-                        {/* vvvvv Descripcion y eso acá vvvvv */}
                     </div>
-                    <div style={{minHeight: '515px', width: '290px', marginLeft: '100px', display: 'flex', flexDirection: 'column'}}>
+
+                    <div className='productContainerRight'>
                         <div>
-                            <p className='productBrand' style={{marginBottom: '7px'}}><b>{this.state.brand}</b></p>
-                            <p className='productName' style={{margin: '0px'}}>{this.state.name}</p> 
+                            <p className='productBrand'><b>{this.state.brand}</b></p>
+                            <p className='productName'>{this.state.name}</p> 
                         </div>
-                        <div style={{marginTop: '44px'}}>
+                        <div className='productAttrs'>
                             {
                                 this.state.attrs.map((attr) =>
                                     <div key={attr.id}>
                                         <p className='productSubtitle'>{attr.id.toUpperCase()}:</p>
-                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '5px 5px', marginTop: '12px'}}>
+                                        <div className='productAttr'>
                                             {
                                                 attr.items.map((a) => 
                                                         <AttributeRadioButton attr={a} type={attr.type} name={attr.name} id={attr.id} key={a.id + attr.id} onClick={this.setAttr} />
@@ -83,7 +81,7 @@ class ProductMainView extends Component {
 
                         <div style={{marginTop: '40px'}}>
                             <p className='productSubtitle'>PRICE:</p>
-                            <p className='productPricing' style={{marginTop: '22px'}}><PriceTag prices={this.state.prices} /></p>
+                            <p className='productPricing'><PriceTag prices={this.state.prices} /></p>
                         </div>
                         
                         <div style={{marginTop: '22px'}}>
@@ -92,7 +90,6 @@ class ProductMainView extends Component {
                                     <button 
                                         disabled={Object.keys(this.state.selectedAttrs).length !== this.state.attrs.length} 
                                         className='addToCartButton' 
-                                        style={{width: '100%'}} 
                                         onClick={() => this.context.addItem(this.state.itemId , this.props.item, this.state.selectedAttrs)}
                                     >
                                         ADD TO CART
@@ -102,7 +99,7 @@ class ProductMainView extends Component {
                             }
                         </div>
 
-                        <div style={{marginTop: '40px', maxHeight: '300px', overflow: 'scroll'}} className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+                        <div className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
 
                     </div>
                 </div>

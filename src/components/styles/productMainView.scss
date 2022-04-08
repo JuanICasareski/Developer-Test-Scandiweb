@@ -3,11 +3,6 @@
   display: none;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-}
-
 .productSubtitle {
   font-family: 'Roboto Condensed';
   font-style: normal;
@@ -28,6 +23,8 @@
   font-weight: 700;
   font-size: 24px;
 
+  margin-top: 22px;
+
   display: flex;
   align-items: center;
 
@@ -35,14 +32,18 @@
 }
 
 .productDescription {
+  min-height: 140px;
+  max-height: 300px;
+  overflow: scroll;
+  
+  margin-top: 40px;
+  color: #1D1F22;
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 159.96%;
-  color: #1D1F22;
-  min-height: 140px;
-  overflow: scroll;
 }
 
 .centerImage {
@@ -64,6 +65,8 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 27px;
+
+  margin: 0;
 }
 
 .productBrand {
@@ -72,6 +75,8 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 27px;
+
+  margin-bottom: 7px;
   
   color: #292929;
 }
@@ -81,11 +86,14 @@
   border: none;
   padding: 16px 32px;
   color: #F7F7F7;
+  width: 100%;
+
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 120%;
+
   touch-action: manipulation;
   transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
 }
@@ -100,3 +108,62 @@
   border: 1px solid #A6A6A6;
 }
 
+
+
+.productContainer {
+  position: relative;
+  width: 995px;
+  min-height: 725px;
+  
+  display: flex;
+  margin: 0 auto;
+
+  padding-top: 80px;
+}
+
+.productContainerLeft {
+  width: 635px;
+  height: 515px;
+  display: flex;
+}
+
+.imageSliderContainer {
+  width: 80px;
+  height: 515px;
+  display: block;
+  overflow: scroll;
+  padding: 2px;
+}
+
+.imageSliderImage {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.productImageContainer {
+  width: 515px;
+  height: 515px;
+  margin-left: 40px;
+  position: relative;
+}
+
+.productContainerRight {
+  min-height: 515px;
+  width: 290px;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.productAttrs {
+  margin-top: 44px;
+}
+
+.productAttr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 5px;
+  margin-top: 12px;
+}
