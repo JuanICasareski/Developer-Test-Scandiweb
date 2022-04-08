@@ -107,7 +107,7 @@ class SmallCartItem extends Component {
                         <button onClick={() => this.decrementCount()}>-</button>
                     </div>
                     <div>
-                        <img style={{maxWidth:'105px', maxHeight: '100%'}} src={this.state.gallery[0]} />
+                        <img style={{maxWidth:'105px', maxHeight: '100%'}} src={this.state.gallery[0]}  alt='item image' />
                     </div>
                 </div>
             </div>

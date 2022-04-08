@@ -53,7 +53,7 @@ class ProductMainView extends Component {
                             }
                         </div>
                         <div className='productImageContainer'>
-                            <img className='centerImage' src={this.state.currentImage}></img>
+                            <img className='centerImage' src={this.state.currentImage}  alt='current item image' />
                         </div>
                     </div>
 

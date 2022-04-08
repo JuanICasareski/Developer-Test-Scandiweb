@@ -78,7 +78,7 @@ class Navbar extends Component {
 
                     
                     <a href='/' className='navbarLogo'>
-                        <img src='/logo.svg' />
+                        <img src='/logo.svg' alt='logo' />
                     </a>
                     
 

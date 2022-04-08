@@ -125,12 +125,12 @@ class BigCartItem extends Component {
                         </div>
                        
                         <div className='cartItemImage'>
-                            <img style={{maxHeight: '100%', width: '100%'}} src={this.state.gallery.at(this.state.currentImageIndex)} />
+                            <img style={{maxHeight: '100%', width: '100%'}} src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item image' />
                             <div className='cartItemCarrousel'>
                                 {
                                     this.state.currentImageIndex > 0?
                                         <div onClick={() => this.prevImage()}>
-                                            <img src='prev-button.svg' />
+                                            <img src='prev-button.svg' alt='back' />
                                         </div>
                                     :
                                         <div style={{width: '24px', height: '100%'}}></div>
@@ -138,7 +138,7 @@ class BigCartItem extends Component {
                                 {
                                     this.state.currentImageIndex < this.state.gallery.length-1?
                                         <div onClick={() => this.nextImage()}>
-                                            <img src='next-button.svg' />
+                                            <img src='next-button.svg' alt='next' />
                                         </div>
                                     :
                                         <div style={{width: '24px', height: '100%'}}></div>
