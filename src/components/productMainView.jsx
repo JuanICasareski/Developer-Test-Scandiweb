@@ -4,6 +4,7 @@ import AttributeRadioButton from './attributeRadioButton'
 import styles from './styles/productMainView.scss'
 import CartContext from '../context/cartContext'
 import PriceTag from './priceTag'
+import { Interweave } from 'interweave'
 
 class ProductMainView extends Component {
     constructor(props){
@@ -99,7 +100,9 @@ class ProductMainView extends Component {
                             }
                         </div>
 
-                        <div className='productDescription noScrollBar' dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+                        <div className='productDescription noScrollBar'>
+                            <Interweave content={this.state.description} />
+                        </div>
 
                     </div>
                 </div>
