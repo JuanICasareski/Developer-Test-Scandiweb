@@ -83,7 +83,7 @@ class Index extends Component {
                 {
                     this.state.items?
                         this.state.items.map(category =>
-                            category.name == this.context.currentCategory?
+                            category.name === this.context.currentCategory?
                                 <div className='indexView' key={category}>
                                     {
                                         category.products.map(product => 

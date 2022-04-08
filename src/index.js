@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import ProductDescriptionPage from './routes/productDescriptionPage'
 import Index from './routes/index'
 import Navbar from './components/navbar'
-import CartContext, { CartProvider } from './context/cartContext'
+import { CartProvider } from './context/cartContext'
 import Cart from './routes/cart'
 
 const rootElement = document.getElementById('root')

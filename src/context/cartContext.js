@@ -67,7 +67,7 @@ export class CartProvider extends Component {
                 }
             })
    
-            for(const [i, item] of this.state.items.entries()) {
+            for(let item of this.state.items) {
                 for(const [j, price] of item.itemInfo.prices.entries()) {
                     totalPrices[j] = {
                         amount: totalPrices.at(j).amount + price.amount * item.count,

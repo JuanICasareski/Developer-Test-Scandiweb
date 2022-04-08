@@ -3,10 +3,6 @@ import styles from './styles/navbarCategory.scss'
 import CartContext from '../context/cartContext'
 
 class NavbarCategory extends Component {
-    constructor(props) {
-        super(props)
-    }
-    
     render() {
         return (
             <label>
@@ -20,7 +16,6 @@ class NavbarCategory extends Component {
         )
     }
 }
-// Add default checked
 
 NavbarCategory.context = CartContext
 

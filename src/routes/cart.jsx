@@ -4,10 +4,6 @@ import CartContext from '../context/cartContext'
 import styles from '../components/styles/cart.scss'
 
 class Cart extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div className='cart'>
