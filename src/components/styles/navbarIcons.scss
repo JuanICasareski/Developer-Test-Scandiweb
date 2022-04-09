@@ -104,8 +104,13 @@
     animation: fadeIn .5s reverse;
 }
 
-.navbarCartInfo {
-    animation: fadeIn .5s;
+.navbarCart {
+    margin-left: 20px;
+}
+
+.navbarCart img {
+    height: 23px;
+    margin-top: 2px;
 }
 
 .navbarCart input[type=checkbox]:checked + label {
@@ -117,6 +122,7 @@
 }
 
 .navbarCartInfo {
+    width: 325px;
     display: none;
     position: absolute;
     margin-top: 25px;
@@ -294,3 +300,12 @@
 .noScrollBar::-webkit-scrollbar {
     display: none;
   }
+
+
+
+
+.navbarIcons {
+    margin-top: 25px;
+    display: flex;
+    margin-right: 100px;
+}

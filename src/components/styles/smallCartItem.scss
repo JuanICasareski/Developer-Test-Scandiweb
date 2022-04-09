@@ -12,6 +12,18 @@
     flex-direction: row;
 }
 
+.smallItemImageContainer {
+    width: 105px;
+    height: 137px;
+}
+
+.smallItemImageContainer > img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    margin: 0 !important;
+}
+
 .smallCartItemLeft {
     width: 143px;
     min-height: 137px;
@@ -68,6 +80,8 @@
 .smallCartItemName p {
     white-space: nowrap;
     overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .smallCartItemPricing {
@@ -79,6 +93,9 @@
     margin-top: 6px;
 }
 
+.smallCartItemPricing > p {
+    margin-bottom: 0;
+}   
 
 
 

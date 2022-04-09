@@ -47,22 +47,10 @@ class Navbar extends Component {
 
     render() {
         return (
-            <div 
-                style={{
-                    width: '100%'
-                }}
-            >
-                <div 
-                    style={{
-                        width: '100%',
-                        height: '80px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        position: 'relative'
-                    }}
-                >
-                    <div className='navbar' style={{ height: '80px' }}>
-                        <div style={{ marginLeft: '100px' }}>
+            <div className='navbarContainer'>
+                <div className='navbarContent'>
+                    <div className='navbarCategories'>
+                        <div className='navbarCategoriesInner'>
                             {
                                 this.state.items ?
                                     this.state.items.map(category =>
@@ -77,14 +65,11 @@ class Navbar extends Component {
                                     : null
                             }
                         </div>
-
                     </div>
-
 
                     <a href='/' className='navbarLogo'>
                         <img src='/logo.svg' alt='logo' />
                     </a>
-
 
                     <div>
                         {
@@ -94,21 +79,20 @@ class Navbar extends Component {
                         }
                     </div>
                 </div>
-                <div className={this.context.isDimmed ? 'dimmed' : 'undimmed'}
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        minHeight: '100vh'
-                    }}>
-                    <div style={{ flex: 1 }}>
+                <div 
+                    className={
+                        this.context.isDimmed ? 
+                            'contentContainer dimmed' 
+                        : 
+                            'contentContainer undimmed'
+                    }
+                >    
                         {this.props.children}
-                    </div>
                 </div>
             </div>
         )
     }
 }
-//1100px
 
 Navbar.contextType = CartContext
 

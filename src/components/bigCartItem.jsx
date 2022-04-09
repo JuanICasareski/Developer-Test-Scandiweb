@@ -52,13 +52,13 @@ class BigCartItem extends Component {
                 <div className='cartItemLeft'>
                     <div>
                         <div className='cartItemBrand'>
-                            <p style={{ marginBottom: 0, marginTop: 0 }}>{this.state.brand}</p>
+                            <p>{this.state.brand}</p>
                         </div>
                         <div className='cartItemName'>
-                            <p style={{ marginTop: 0 }}>{this.state.name}</p>
+                            <p>{this.state.name}</p>
                         </div>
                         <div className='cartItemPricing'>
-                            <p style={{ marginBottom: 0 }}> <PriceTag prices={this.state.prices} /> </p>
+                            <p> <PriceTag prices={this.state.prices} /> </p>
                         </div>
                     </div>
                     <div className='cartItemDetails'>
@@ -125,7 +125,7 @@ class BigCartItem extends Component {
                     </div>
 
                     <div className='cartItemImage'>
-                        <img style={{ maxHeight: '100%', width: '100%' }} src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item image' />
+                        <img src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item image' />
                         <div className='cartItemCarrousel'>
                             {
                                 this.state.currentImageIndex > 0 ?
@@ -133,7 +133,7 @@ class BigCartItem extends Component {
                                         <img src='prev-button.svg' alt='back' />
                                     </div>
                                     :
-                                    <div style={{ width: '24px', height: '100%' }}></div>
+                                    <div className='carrouselButtonPlaceholder'></div>
                             }
                             {
                                 this.state.currentImageIndex < this.state.gallery.length - 1 ?
@@ -141,7 +141,7 @@ class BigCartItem extends Component {
                                         <img src='next-button.svg' alt='next' />
                                     </div>
                                     :
-                                    <div style={{ width: '24px', height: '100%' }}></div>
+                                    <div className='carrouselButtonPlaceholder'></div>
                             }
                         </div>
                     </div>

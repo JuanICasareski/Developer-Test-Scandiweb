@@ -5,6 +5,8 @@
     font-weight: 300;
     font-size: 18px;
     line-height: 160%;
+
+    margin-bottom: 0;
 }
 
 .productIndexViewPricing {
@@ -12,6 +14,8 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
+
+    margin-top: 2px;
 }
 
 .indexView {
@@ -21,7 +25,10 @@
 }
 
 .productIndexView {
-    transition: box-shadow .5s
+    transition: box-shadow .5s;
+    width: 386px;
+    height: 444px;
+    padding-top: 16px;
 }
 
 .indexView a:visited, a{
@@ -66,8 +73,10 @@
     display: block;
 }
 
-.productIndexCartButton img{
+.productIndexCartButton > img{
     filter: invert(100%);
+    width: 24px;
+    height: 24px;
 }   
 
 .outOfStock {
@@ -108,4 +117,27 @@
     text-transform: uppercase;
 
     margin-bottom: 103px;
+}
+
+.indexContainer {
+    width: 1238px;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.indexViewImageContainer {
+    height: 330px;
+    width: 386px;
+    position: relative;
+}
+
+.indexViewImage {
+    max-height: 330px;
+    max-width: 354px;
+}
+
+.indexViewDescriptionContainer {
+    margin-left: 16px;
+    margin-top: 35px;
 }

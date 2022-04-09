@@ -9,6 +9,8 @@
 .imgRadioButton input[type=radio] + img {
     cursor: pointer;
     transition: box-shadow .2s;
+    max-width: 100%;
+    height: 100%;
 }
 
 

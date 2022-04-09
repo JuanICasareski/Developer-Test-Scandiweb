@@ -40,11 +40,11 @@ class SmallCartItem extends Component {
                 <div className='smallCartItemLeft'>
                     <div>
                         <div className='smallCartItemName'>
-                            <p style={{ marginBottom: 0, marginTop: 0 }}>{this.state.brand}</p>
-                            <p style={{ marginTop: 0 }}>{this.state.name}</p>
+                            <p>{this.state.brand}</p>
+                            <p>{this.state.name}</p>
                         </div>
                         <div className='smallCartItemPricing'>
-                            <p style={{ marginBottom: 0 }}> <PriceTag prices={this.state.prices} /> </p>
+                            <p> <PriceTag prices={this.state.prices} /> </p>
                         </div>
                     </div>
                     <div className='smallCartItemDetails'>
@@ -106,8 +106,9 @@ class SmallCartItem extends Component {
                         <p>{this.state.itemCount}</p>
                         <button onClick={() => this.decrementCount()}>-</button>
                     </div>
-                    <div>
-                        <img style={{ maxWidth: '105px', maxHeight: '100%' }} src={this.state.gallery[0]} alt='item image' />
+
+                    <div className='smallItemImageContainer'>
+                        <img src={this.state.gallery[0]} alt='item image' />
                     </div>
                 </div>
             </div>

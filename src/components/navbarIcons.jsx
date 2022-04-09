@@ -15,8 +15,8 @@ class NavbarIcons extends Component {
     render() {
         console.log(this.context.items)
         return (
-            <div className='navbarIcons' style={{ marginTop: '25px', display: 'flex', marginRight: '100px' }}>
-                <div className='currencySelector' style={{}}>
+            <div className='navbarIcons'>
+                <div className='currencySelector'>
                     <button className='currencySelectorButton'>
                         <div>
                             {this.context.currency}
@@ -42,7 +42,7 @@ class NavbarIcons extends Component {
                         }
                     </div>
                 </div>
-                <div className='navbarCart' style={{ marginLeft: '20px' }}>
+                <div className='navbarCart'>
                     <input
                         type='checkbox' 
                         id='cart' 
@@ -52,10 +52,6 @@ class NavbarIcons extends Component {
                         <img
                             src='/shopping-cart-x512.svg'
                             alt='shopping cart'
-                            style={{
-                                height: '23px',
-                                marginTop: '2px'
-                            }}
                         />
                         <div>
                             {
@@ -72,7 +68,7 @@ class NavbarIcons extends Component {
                     </label>
 
 
-                    <div className='navbarCartInfo' style={{ width: '325px' }}>
+                    <div className='navbarCartInfo'>
                         <div className='navbarCartTitle'>
                             My bag, {this.context.totalItemCount} items
                         </div>

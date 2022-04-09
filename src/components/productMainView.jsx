@@ -80,12 +80,12 @@ class ProductMainView extends Component {
                         }
                     </div>
 
-                    <div style={{ marginTop: '40px' }}>
+                    <div>
                         <p className='productSubtitle'>PRICE:</p>
                         <p className='productPricing'><PriceTag prices={this.state.prices} /></p>
                     </div>
 
-                    <div style={{ marginTop: '22px' }}>
+                    <div className='addToCartButtonContainer'>
                         {
                             this.state.inStock ?
                                 <button
@@ -96,7 +96,7 @@ class ProductMainView extends Component {
                                     ADD TO CART
                                 </button>
                                 :
-                                <button disabled className='addToCartButton' style={{ width: '100%' }} title='🥲'>OUT OF STOCK</button>
+                                <button disabled className='addToCartButton' title='🥲'>OUT OF STOCK</button>
                         }
                     </div>
 

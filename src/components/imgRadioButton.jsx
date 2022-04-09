@@ -13,7 +13,6 @@ class ImgRadioButton extends Component {
                 <img
                     src={this.props.url}
                     key={this.props.url}
-                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                     onClick={() => this.props.onClick(this.props.url)}
                     className='centerImage'
                     alt='slider image'

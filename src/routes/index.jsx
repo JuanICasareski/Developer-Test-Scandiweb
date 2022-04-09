@@ -72,13 +72,7 @@ class Index extends Component {
 
     render() {
         return (
-            <div style={{
-                width: '1238px',
-                position: 'relative',
-                margin: '0 auto',
-                paddingTop: '80px'
-            }}
-            >
+            <div className='indexContainer'>
                 <h1 className='categoryTitle'>{this.context.currentCategory}</h1>
                 {
                     this.state.items ?
@@ -90,31 +84,16 @@ class Index extends Component {
                                             <div 
                                                 className={product.inStock ? 'productIndexView' : 'productIndexView outOfStock'}
                                                 key={product.id}
-                                                style={{
-                                                    width: '386px',
-                                                    height: '444px',
-                                                    paddingTop: '16px'
-                                                }}
                                             >
 
                                                 <a href={"/item/" + product.id} key={product.id + 'image'}>
                                                     <div className='outOfStockLabel'>
                                                         OUT OF STOCK
                                                     </div>
-                                                    <div
-                                                        style={{
-                                                            height: '330px',
-                                                            width: '386px',
-                                                            position: 'relative'
-                                                        }}
-                                                    >
+                                                    <div className='indexViewImageContainer'>
                                                         <img 
                                                             src={product.gallery[0]}
-                                                            className='centerImage'
-                                                            style={{
-                                                                maxHeight: '330px',
-                                                                maxWidth: '354px'
-                                                            }}
+                                                            className='indexViewImage centerImage'
                                                         />
                                                     </div>
                                                 </a>
@@ -128,10 +107,6 @@ class Index extends Component {
                                                             <img 
                                                                 className='centerImage' 
                                                                 src='/shopping-cart-x512.svg' 
-                                                                style={{
-                                                                    width: '24px', 
-                                                                    height: '24px' 
-                                                                }} 
                                                             />
                                                         </span>
                                                         :
@@ -139,16 +114,12 @@ class Index extends Component {
                                                 }
 
                                                 <a href={"/item/" + product.id} key={product.id + 'details'}>
-                                                    <div 
-                                                        style={{
-                                                            marginLeft: '16px',
-                                                            marginTop: '35px'
-                                                        }}
+                                                    <div className='indexViewDescriptionContainer'
                                                     >
-                                                        <h3 className='productIndexViewName' style={{ marginBottom: 0 }}>
+                                                        <h3 className='productIndexViewName'>
                                                             {product.brand} {product.name}
                                                         </h3>
-                                                        <h4 className='productIndexViewPricing' style={{ marginTop: '2px' }}>
+                                                        <h4 className='productIndexViewPricing'>
                                                             <PriceTag prices={product.prices} />
                                                         </h4>
                                                     </div>
