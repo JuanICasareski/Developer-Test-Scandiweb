@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductMainView from '../components/productMainView'
+import { getItemData } from '../helpers'
 
 class ProductDescriptionPage extends Component {
     constructor(props) {
@@ -10,55 +11,14 @@ class ProductDescriptionPage extends Component {
         }
     }
 
-    componentDidMount = () => {
-        console.log("=== Component mounted ===")
-        const query = `
-            query {
-                product(id:"${this.props.match.params.item_id}") {
-                    id
-                    name
-                    inStock
-                    gallery
-                    description
-                    category
-                    attributes {
-                        id
-                        name
-                        type
-                        items {
-                            displayValue
-                            value
-                            id
-                        }
-                    }
-                    prices {
-                        amount
-                        currency {
-                            label
-                            symbol
-                        }      
-                    }
-                    brand
-                }
-            }
-        `
-        fetch("http://localhost:4000", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                query
-            })
-        }).then(response => {
-            return response.json()
-        }).then(data => {
-            this.setState({ item: data.data.product })
-        })
+    componentDidMount() {
+        getItemData(this.props.match.params.item_id)
+            .then(itemData =>
+                this.setState({ item: itemData })
+            )
     }
 
-    render = () => {
+    render() {
         return (
             <div>
                 {
