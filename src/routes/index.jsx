@@ -2,61 +2,34 @@ import React, { Component } from 'react'
 import PriceTag from '../components/priceTag'
 import CartContext from '../context/cartContext'
 import styles from '../components/styles/index.scss'
-
+import { getItemsFromCategory } from '../helpers'
 class Index extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: null
+            items: null,
+            currentCategory: null
         }
     }
 
     componentDidMount() {
-        const query = `
-            query {
-                categories {
-                    name
-                    products {
-                        id
-                        name
-                        brand
-                        inStock
-                        gallery
-                        prices {
-                            currency {
-                                symbol  
-                            }
-                            amount
-                        }
-                        attributes {
-                            id
-                            name
-                            type
-                            items {
-                                displayValue
-                                value
-                                id
-                            }
-                        }
-                    }
-                }
-            }           
-        `
-        fetch("http://localhost:4000", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                query
-            })
-        }).then(response => {
-            return response.json()
-        }).then(data => {
-            this.setState({ items: data.data.categories })
-        })
+        getItemsFromCategory(this.context.currentCategory)
+            .then(allItems =>
+                this.setState({ items: allItems })
+            )
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.currentCategory !== this.context.currentCategory) {
+            getItemsFromCategory(this.context.currentCategory)
+                .then(allItems =>
+                    this.setState({ items: allItems })
+                )
+
+            this.setState({ currentCategory: this.context.currentCategory })
+        }
+    }
+
 
     addItemWithDefaultAttrs = (itemId, item) => {
         let selectedAttrs = {}
@@ -76,12 +49,12 @@ class Index extends Component {
                 <h1 className='categoryTitle'>{this.context.currentCategory}</h1>
                 {
                     this.state.items ?
-                        this.state.items.map(category =>
-                            category.name === this.context.currentCategory ?
-                                <div className='indexView' key={category}>
-                                    {
-                                        category.products.map(product =>
-                                            <div 
+                        <div className='indexView'>
+                            {
+                                this.state.items.map(product =>
+                                    <React.Fragment key={product.id}>
+                                        {
+                                            <div
                                                 className={product.inStock ? 'productIndexView' : 'productIndexView outOfStock'}
                                                 key={product.id}
                                             >
@@ -91,7 +64,7 @@ class Index extends Component {
                                                         OUT OF STOCK
                                                     </div>
                                                     <div className='indexViewImageContainer'>
-                                                        <img 
+                                                        <img
                                                             src={product.gallery[0]}
                                                             className='indexViewImage centerImage'
                                                         />
@@ -100,13 +73,13 @@ class Index extends Component {
 
                                                 {
                                                     product.inStock ?
-                                                        <span 
-                                                            className='productIndexCartButton' 
+                                                        <span
+                                                            className='productIndexCartButton'
                                                             onClick={() => this.addItemWithDefaultAttrs(product.id, product)}
                                                         >
-                                                            <img 
-                                                                className='centerImage' 
-                                                                src='/shopping-cart-x512.svg' 
+                                                            <img
+                                                                className='centerImage'
+                                                                src='/shopping-cart-x512.svg'
                                                             />
                                                         </span>
                                                         :
@@ -125,11 +98,11 @@ class Index extends Component {
                                                     </div>
                                                 </a>
                                             </div>
-                                        )
-                                    }
-                                </div>
-                                : null
-                        )
+                                        }
+                                    </React.Fragment>
+                                )
+                            }
+                        </div>
                         : null
                 }
             </div>
