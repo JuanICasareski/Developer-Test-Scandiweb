@@ -1,109 +1,8 @@
 
-.productIndexViewName {
-    font-family: Raleway;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 160%;
-
-    margin-bottom: 0;
-}
-
-.productIndexViewPricing {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-
-    margin-top: 2px;
-}
-
 .indexView {
     display: flex;
     flex-wrap: wrap;
     gap: 100px 40px;
-}
-
-.productIndexView {
-    transition: box-shadow .5s;
-    width: 386px;
-    height: 444px;
-    padding-top: 16px;
-}
-
-.indexView a:visited, a{
-    color: #1D1F22;
-    text-decoration: none;
-}
-
-.productIndexView:hover {
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-@keyframes fadeIn {
-    0% {
-        filter: opacity(0%);
-    }
-    100% {
-        filter: opacity(100%);
-    }
-}
-
-.productIndexCartButton {
-    display: none;
-    position: absolute;
-    z-index: 3;
-    background-color: #5ECE7B;
-    width: 52px;
-    height: 52px;
-    text-align: right;
-    margin-top: -26px;
-    margin-left: 302px;
-    border-radius: 26px;
-
-    transition: transform .15s;
-    animation: fadeIn .5s
-}
-
-.productIndexCartButton:active {
-    transform: scale(90%);
-}
-
-.productIndexView:hover > span {
-    display: block;
-}
-
-.productIndexCartButton > img{
-    filter: invert(100%);
-    width: 24px;
-    height: 24px;
-}   
-
-.outOfStock {
-    opacity: 50%;
-}
-
-.outOfStock > a > .outOfStockLabel{
-    display: flex;
-}
-
-.outOfStockLabel {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 160%;
-
-    display: none;
-    position: absolute;
-    z-index: 3;
-    align-items: center;
-    justify-content: center;
-
-    height: 330px;
-    width: 386px;
-
-    color: #8D8F9A;
 }
 
 .categoryTitle {
@@ -124,20 +23,4 @@
     position: relative;
     margin: 0 auto;
     padding-top: 80px;
-}
-
-.indexViewImageContainer {
-    height: 330px;
-    width: 386px;
-    position: relative;
-}
-
-.indexViewImage {
-    max-height: 330px;
-    max-width: 354px;
-}
-
-.indexViewDescriptionContainer {
-    margin-left: 16px;
-    margin-top: 35px;
 }
