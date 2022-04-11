@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { CartProvider } from './context/cartContext'
 
 import ProductDescriptionPage from './routes/ProductDescriptionPage'
-import Index from './routes/ProductListingPage'
+import ProductListingPage from './routes/ProductListingPage'
 import Navbar from './components/Navbar'
 import Cart from './routes/CartPage'
 
@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Navbar>
-          <Route path="/" render={props => <Index {...props} />} exact />
+          <Route path="/" render={props => <ProductListingPage {...props} />} exact />
           <Route path="/item/:item_id" render={props => <ProductDescriptionPage {...props} />} />
           <Route path='/cart' render={props => <Cart {...props} />} />
         </Navbar>

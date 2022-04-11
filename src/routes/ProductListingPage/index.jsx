@@ -4,7 +4,7 @@ import CartContext from '../../context/cartContext'
 import './styles.css'
 import { getItemsFromCategory } from '../../helpers'
 
-class Index extends Component {
+class ProductListingPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -111,6 +111,6 @@ class Index extends Component {
     }
 }
 
-Index.contextType = CartContext
+ProductListingPage.contextType = CartContext
 
-export default Index
+export default ProductListingPage
