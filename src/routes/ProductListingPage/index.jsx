@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import PriceTag from '../components/priceTag'
-import CartContext from '../context/cartContext'
-import styles from '../components/styles/index.scss'
-import { getItemsFromCategory } from '../helpers'
+import PriceTag from '../../components/PriceTag'
+import CartContext from '../../context/cartContext'
+import './styles.css'
+import { getItemsFromCategory } from '../../helpers'
+
 class Index extends Component {
     constructor(props) {
         super(props)

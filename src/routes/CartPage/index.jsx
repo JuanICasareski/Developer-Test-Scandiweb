@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import BigCartItem from '../components/bigCartItem'
-import CartContext from '../context/cartContext'
-import styles from '../components/styles/cart.scss'
+import BigCartItem from '../../components/BigCartItem'
+import CartContext from '../../context/cartContext'
+import './styles.css'
 
 class Cart extends Component {
     render() {

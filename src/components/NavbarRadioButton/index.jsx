@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import CartContext from '../context/cartContext'
-import styles from './styles/navbarCategory.scss'
+import CartContext from '../../context/cartContext'
+import './styles.css'
 
 class NavbarCategory extends Component {
     render() {

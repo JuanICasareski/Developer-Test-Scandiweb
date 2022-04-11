@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import ProductDescriptionPage from './routes/productDescriptionPage'
 import { CartProvider } from './context/cartContext'
-import Index from './routes/index'
-import Navbar from './components/navbar'
-import Cart from './routes/cart'
+
+import ProductDescriptionPage from './routes/ProductDescriptionPage'
+import Index from './routes/ProductListingPage'
+import Navbar from './components/Navbar'
+import Cart from './routes/CartPage'
 
 const rootElement = document.getElementById('root')
 

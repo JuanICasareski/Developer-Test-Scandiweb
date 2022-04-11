@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CartContext from '../context/cartContext'
+import CartContext from '../../context/cartContext'
 
 class PriceTag extends Component {
     constructor(props) {

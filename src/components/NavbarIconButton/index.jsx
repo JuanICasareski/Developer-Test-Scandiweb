@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import SmallCartItem from './smallCartItem'
-import PriceTag from './priceTag'
-import CartContext from '../context/cartContext'
-import styles from './styles/navbarIcons.scss'
+import SmallCartItem from '../SmallCartItem'
+import PriceTag from '../PriceTag'
+import CartContext from '../../context/cartContext'
+import './styles.css'
 
 class NavbarIcons extends Component {
     constructor(props) {

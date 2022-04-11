@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ProductMainView from '../components/productMainView'
-import { getItemData } from '../helpers'
+import ProductMainView from '../../components/ProductMainView'
+import { getItemData } from '../../helpers'
 
 class ProductDescriptionPage extends Component {
     constructor(props) {

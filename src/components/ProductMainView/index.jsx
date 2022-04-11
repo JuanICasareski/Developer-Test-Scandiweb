@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import ImgRadioButton from './imgRadioButton'
-import AttributeRadioButton from './attributeRadioButton'
-import PriceTag from './priceTag'
-import CartContext from '../context/cartContext'
-import styles from './styles/productMainView.scss'
+import ImgRadioButton from '../ImgRadioButton'
+import AttributeRadioButton from '../AttributeRadioButton'
+import PriceTag from '../PriceTag'
+import CartContext from '../../context/cartContext'
+import './styles.css'
 import { Interweave } from 'interweave'
 
 class ProductMainView extends Component {

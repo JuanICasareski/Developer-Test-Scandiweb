@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import NavbarIcons from './navbarIcons'
-import NavbarCategory from './navbarCategory'
-import CartContext from '../context/cartContext'
-import styles from './styles/navbar.scss'
+import NavbarIcons from '../NavbarIconButton'
+import NavbarCategory from '../NavbarRadioButton'
+import CartContext from '../../context/cartContext'
+import './styles.css'
 
 class Navbar extends Component {
     constructor(props) {
