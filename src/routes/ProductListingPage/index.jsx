@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PriceTag from '../../components/PriceTag'
 import CartContext from '../../context/cartContext'
 import './styles.css'
 import { getItemsFromCategory } from '../../helpers'
