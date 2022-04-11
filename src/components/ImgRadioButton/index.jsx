@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import './styles.css'
 
 class ImgRadioButton extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <label className='imgRadioButton'>
@@ -15,7 +11,7 @@ class ImgRadioButton extends Component {
                     key={this.props.url}
                     onClick={() => this.props.onClick(this.props.url)}
                     className='centerImage'
-                    alt='slider image'
+                    alt='slider selector'
                 >
                 </img>
                 <br></br>
