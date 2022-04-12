@@ -11,6 +11,7 @@ class CartButton extends Component {
                     type='checkbox'
                     id='cart'
                     onClick={this.context.toggleDimm}
+                    checked={this.context.isDimmed}
                 />
                 <label htmlFor='cart'>
                     <img
