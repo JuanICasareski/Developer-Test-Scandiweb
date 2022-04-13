@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import PriceTag from '../PriceTag'
 import BigItemAttrs from './bigItemAttrs'
+import ItemCountSelector from './itemCountSelector'
+import ItemImageCarrousel from './itemImageCarrousel'
 import CartContext from '../../context/cartContext'
 import './styles.css'
+
 
 class BigCartItem extends Component {
     constructor(props) {
@@ -15,36 +18,14 @@ class BigCartItem extends Component {
             gallery: props.item.gallery,
             attributes: props.item.attributes,
             selectedAttrs: props.selectedAttrs,
-            prices: props.item.prices,
-            itemCount: props.count,
-            currentImageIndex: 0
+            prices: props.item.prices
         }
-    }
-
-    incrementCount = () => {
-        this.context.setCount(this.props.order, this.state.itemCount + 1)
-    }
-
-    decrementCount = () => {
-        this.context.setCount(this.props.order, this.state.itemCount - 1)
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.count !== this.props.count) {
             this.setState({ itemCount: this.props.count })
         }
-    }
-
-    nextImage = () => {
-        this.setState({
-            currentImageIndex: this.state.currentImageIndex + 1
-        })
-    }
-
-    prevImage = () => {
-        this.setState({
-            currentImageIndex: this.state.currentImageIndex - 1
-        })
     }
 
     render() {
@@ -71,33 +52,11 @@ class BigCartItem extends Component {
 
                 </div>
                 <div className='cartItemRight'>
-                    <div className='itemCountSelector'>
-                        <button onClick={() => this.incrementCount()}>+</button>
-                        <p>{this.state.itemCount}</p>
-                        <button onClick={() => this.decrementCount()}>-</button>
-                    </div>
+                    
+                    <ItemCountSelector />
 
-                    <div className='cartItemImage'>
-                        <img src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item' />
-                        <div className='cartItemCarrousel'>
-                            {
-                                this.state.currentImageIndex > 0 ?
-                                    <div onClick={() => this.prevImage()}>
-                                        <img src='prev-button.svg' alt='back' />
-                                    </div>
-                                    :
-                                    <div className='carrouselButtonPlaceholder'></div>
-                            }
-                            {
-                                this.state.currentImageIndex < this.state.gallery.length - 1 ?
-                                    <div onClick={() => this.nextImage()}>
-                                        <img src='next-button.svg' alt='next' />
-                                    </div>
-                                    :
-                                    <div className='carrouselButtonPlaceholder'></div>
-                            }
-                        </div>
-                    </div>
+                    <ItemImageCarrousel gallery={this.state.gallery} />
+
                 </div>
             </div>
         )
