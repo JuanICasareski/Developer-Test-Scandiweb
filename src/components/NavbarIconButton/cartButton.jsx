@@ -10,7 +10,7 @@ class CartButton extends Component {
                 <input
                     type='checkbox'
                     id='cart'
-                    onClick={this.context.toggleDimm}
+                    onChange={this.context.toggleDimm}
                     checked={this.context.isDimmed}
                 />
                 <label htmlFor='cart'>
