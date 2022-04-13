@@ -1,7 +1,9 @@
 import React, { Component } from "react"
-import PriceTag from "../PriceTag"
-import './styles.css'
+import IndexCartButton from "./indexCartButton"
+import IndexItemDescription from "./indexItemDescription"
+import IndexItemImage from "./indexItemImage"
 import CartContext from "../../context/cartContext"
+import './styles.css'
 
 class ProductIndexView extends Component {
     constructor(props) {
@@ -9,18 +11,6 @@ class ProductIndexView extends Component {
         this.state = {
             product: props.item
         }
-    }
-
-    addItemWithDefaultAttrs = (itemId, item) => {
-        let selectedAttrs = {}
-        for (let attr of item.attributes) {
-            selectedAttrs = {
-                ...selectedAttrs,
-                [attr.id]: attr.items.at(0).value
-            }
-        }
-
-        this.context.addItem(itemId, item, selectedAttrs)
     }
 
     render() {
@@ -32,44 +22,11 @@ class ProductIndexView extends Component {
                 key={product.id}
             >
 
-                <a href={"/item/" + product.id} key={product.id + 'image'}>
-                    <div className='outOfStockLabel'>
-                        OUT OF STOCK
-                    </div>
-                    <div className='indexViewImageContainer'>
-                        <img
-                            src={product.gallery[0]}
-                            className='indexViewImage centerImage'
-                        />
-                    </div>
-                </a>
+                <IndexItemImage product={this.state.product} />
 
-                {
-                    product.inStock ?
-                        <span
-                            className='productIndexCartButton'
-                            onClick={() => this.addItemWithDefaultAttrs(product.id, product)}
-                        >
-                            <img
-                                className='centerImage'
-                                src='/shopping-cart-x512.svg'
-                            />
-                        </span>
-                        :
-                        null
-                }
+                <IndexCartButton product={this.state.product} />
 
-                <a href={"/item/" + product.id} key={product.id + 'details'}>
-                    <div className='indexViewDescriptionContainer'
-                    >
-                        <h3 className='productIndexViewName'>
-                            {product.brand} {product.name}
-                        </h3>
-                        <h4 className='productIndexViewPricing'>
-                            <PriceTag prices={product.prices} />
-                        </h4>
-                    </div>
-                </a>
+                <IndexItemDescription product={this.state.product} />
             </div>
         )
     }
