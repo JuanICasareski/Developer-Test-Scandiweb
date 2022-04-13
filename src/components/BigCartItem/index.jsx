@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PriceTag from '../PriceTag'
+import BigItemAttrs from './bigItemAttrs'
 import CartContext from '../../context/cartContext'
 import './styles.css'
 
@@ -61,61 +62,13 @@ class BigCartItem extends Component {
                             <p> <PriceTag prices={this.state.prices} /> </p>
                         </div>
                     </div>
-                    <div className='cartItemDetails'>
-                        {
-                            this.state.attributes.map((attr, i) =>
-                                <div key={attr}>
-                                    <p>{attr.name}:</p>
-                                    {
-                                        attr.type === 'swatch' ?
-                                            <div className='cartItemSwatch'>
-                                                {
-                                                    attr.items.map((item, j) =>
-                                                        <React.Fragment key={item + j}>
-                                                            <label>
-                                                                <input
-                                                                    type='radio'
-                                                                    checked={this.state.selectedAttrs[attr.id] === item.value}
-                                                                    name={`${attr.name}${this.props.order}big`}
-                                                                    onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
-                                                                />
-                                                                <span
-                                                                    style={{
-                                                                        background: item.displayValue
-                                                                    }}
-                                                                />
-                                                            </label>
-                                                        </React.Fragment>
-                                                    )
-                                                }
-                                            </div>
-                                            :
-                                            <div className='cartItemAttributes'>
-                                                {
-                                                    attr.items.map((item, j) =>
-                                                        <React.Fragment key={item + j}>
-                                                            <input
-                                                                type='radio'
-                                                                checked={this.state.selectedAttrs[attr.id] === item.value}
-                                                                name={attr.name + this.props.order + 'big'}
-                                                                id={`${item.id} ${this.props.order} ${i} big`}
-                                                                onChange={() => this.context.setAttribute(this.props.order, attr.id, item.value)}
-                                                            />
-                                                            <label
-                                                                htmlFor={`${item.id} ${this.props.order} ${i} big`}
-                                                            >
-                                                                <span>{item.value}</span>
-                                                            </label>
-                                                        </React.Fragment>
-                                                    )
-                                                }
-                                            </div>
-                                    }
-                                </div>
+                    
+                    <BigItemAttrs 
+                        attrs={this.state.attributes} 
+                        order={this.props.order} 
+                        selectedAttrs={this.state.selectedAttrs} 
+                    />
 
-                            )
-                        }
-                    </div>
                 </div>
                 <div className='cartItemRight'>
                     <div className='itemCountSelector'>
@@ -125,7 +78,7 @@ class BigCartItem extends Component {
                     </div>
 
                     <div className='cartItemImage'>
-                        <img src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item image' />
+                        <img src={this.state.gallery.at(this.state.currentImageIndex)} alt='Current item' />
                         <div className='cartItemCarrousel'>
                             {
                                 this.state.currentImageIndex > 0 ?
