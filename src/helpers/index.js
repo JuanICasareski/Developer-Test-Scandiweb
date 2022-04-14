@@ -97,3 +97,33 @@ export const getItemData = (itemId) => {
 
     return data
 }
+
+export const getCategoriesAndCurrencies = () => {
+    const query = `
+        query {        
+            categories {
+                name 
+            }
+            currencies {
+                label
+                symbol
+            }
+        }           
+    `
+    const data = fetch("http://localhost:4000", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            query
+        })
+    }).then(response => {
+        return response.json()
+    }).then(data => {
+        return data.data
+    })
+
+    return data
+}

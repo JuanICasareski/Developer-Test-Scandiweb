@@ -3,7 +3,7 @@ import NavbarIcons from '../NavbarIconButton'
 import NavbarCategory from '../NavbarRadioButton'
 import CartContext from '../../context/cartContext'
 import './styles.css'
-
+import { getCategoriesAndCurrencies } from '../../helpers'
 class Navbar extends Component {
     constructor(props) {
         super(props)
@@ -14,35 +14,13 @@ class Navbar extends Component {
     }
 
     componentDidMount() {
-        const query = `
-            query {        
-                categories {
-                    name 
-                }
-                currencies {
-                    label
-                    symbol
-                }
-            }           
-        `
-        fetch("http://localhost:4000", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                query
-            })
-        }).then(response => {
-            return response.json()
-        }).then(data => {
-            this.setState({
-                items: data.data.categories,
-                currencies: data.data.currencies
-            })
-        })
-
+        getCategoriesAndCurrencies()
+            .then(data =>
+                this.setState({
+                    currencies: data.currencies,
+                    items: data.categories
+                })
+            )
     }
 
     render() {
