@@ -23,7 +23,6 @@ class NavbarIcons extends Component {
     }
 
     render() {
-        console.log(this.context.items)
         return (
             <div className='navbarIcons'>
                 <CurrencyButton currencies={this.props.currencies} />
