@@ -18,7 +18,8 @@ class BigCartItem extends Component {
             gallery: props.item.gallery,
             attributes: props.item.attributes,
             selectedAttrs: props.selectedAttrs,
-            prices: props.item.prices
+            prices: props.item.prices,
+            itemCount: props.count
         }
     }
 
@@ -53,7 +54,7 @@ class BigCartItem extends Component {
                 </div>
                 <div className='cartItemRight'>
                     
-                    <ItemCountSelector />
+                    <ItemCountSelector count={this.state.itemCount} />
 
                     <ItemImageCarrousel gallery={this.state.gallery} />
 

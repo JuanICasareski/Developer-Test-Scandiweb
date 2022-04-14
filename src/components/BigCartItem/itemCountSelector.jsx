@@ -13,9 +13,15 @@ class ItemCountSelector extends Component {
     incrementCount = () => {
         this.context.setCount(this.props.order, this.state.itemCount + 1)
     }
-
+    
     decrementCount = () => {
         this.context.setCount(this.props.order, this.state.itemCount - 1)
+    }
+    
+    componentDidUpdate(prevProps) {
+        if (prevProps.count !== this.props.count) {
+            this.setState({ itemCount: this.props.count })
+        }
     }
 
     render() {
