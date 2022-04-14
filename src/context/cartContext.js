@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 
 const shallowEqual = (object1, object2) => {
@@ -9,14 +9,14 @@ const shallowEqual = (object1, object2) => {
     const keys1 = Object.keys(object1);
     const keys2 = Object.keys(object2);
     if (keys1.length !== keys2.length) {
-        return false;
+        return false
     }
     for (let key of keys1) {
         if (object1[key] !== object2[key]) {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
 window.localStorage.setItem(
@@ -126,7 +126,6 @@ export class CartProvider extends Component {
     }
 
     setAttribute = (position, newAttrKey, newAttr) => {
-        // Works, but should find more elegant way
         let items = [...this.state.items]
         items.at(position).selectedAttrs[newAttrKey] = newAttr
         this.setState({ items: items })
@@ -158,22 +157,10 @@ export class CartProvider extends Component {
     }
 
     render() {
-        const { items, currentCategory, currency, isDimmed, totalItemCount, totalItemPrices } = this.state
-        const { addItem, setCategory, setCurrency, toggleDimm, setAttribute, setCount } = this;
         return (
             <CartContext.Provider value={{
-                items,
-                addItem,
-                currentCategory,
-                setCategory,
-                currency,
-                setCurrency,
-                isDimmed,
-                toggleDimm,
-                setAttribute,
-                setCount,
-                totalItemCount,
-                totalItemPrices
+                ...this,
+                ...this.state
             }}>
                 {this.props.children}
             </CartContext.Provider>
