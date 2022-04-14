@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import ImgRadioButton from '../ImgRadioButton'
-import AttributeRadioButton from '../AttributeRadioButton'
-import PriceTag from '../PriceTag'
+import MainViewAttrs from './mainViewAttrs'
+import MainViewCartButton from './mainViewCartButton'
+import MainViewPrice from './mainViewPrice'
+import MainViewImage from './mainViewImage'
+import MainViewTitle from './mainViewTitle'
+import MainViewDescription from './mainViewDescription'
 import CartContext from '../../context/cartContext'
 import './styles.css'
-import { Interweave } from 'interweave'
-
 class ProductMainView extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentImage: props.item.gallery.at(0),
             gallery: props.item.gallery,
             itemId: props.item.id,
             name: props.item.name,
@@ -21,12 +21,6 @@ class ProductMainView extends Component {
             inStock: props.item.inStock,
             selectedAttrs: {}
         }
-    }
-
-    setImage = (newUrl) => {
-        this.setState({
-            currentImage: newUrl
-        })
     }
 
     setAttr = (id, attr) => {
@@ -44,65 +38,37 @@ class ProductMainView extends Component {
         return (
             <div className='productContainer'>
                 <div className='productContainerLeft'>
-                    <div className='imageSliderContainer noScrollBar'>
-                        {
-                            this.state.gallery.map((i) =>
-                                <div className='imageSliderImage' key={i + 'container'}>
-                                    <ImgRadioButton url={i} onClick={this.setImage} />
-                                </div>
-                            )
-                        }
-                    </div>
-                    <div className='productImageContainer'>
-                        <img className='centerImage' src={this.state.currentImage} alt='current item' />
-                    </div>
+                    <MainViewImage 
+                        gallery={this.state.gallery} 
+                    />
                 </div>
 
                 <div className='productContainerRight'>
-                    <div>
-                        <p className='productBrand'>{this.state.brand}</p>
-                        <p className='productName'>{this.state.name}</p>
-                    </div>
-                    <div className='productAttrs'>
-                        {
-                            this.state.attrs.map((attr) =>
-                                <div key={attr.id}>
-                                    <p className='productSubtitle'>{attr.id.toUpperCase()}:</p>
-                                    <div className='productAttr'>
-                                        {
-                                            attr.items.map((a) =>
-                                                <AttributeRadioButton attr={a} type={attr.type} name={attr.name} id={attr.id} key={a.id + attr.id} onClick={this.setAttr} />
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                            )
-                        }
-                    </div>
 
-                    <div>
-                        <p className='productSubtitle'>PRICE:</p>
-                        <p className='productPricing'><PriceTag prices={this.state.prices} /></p>
-                    </div>
+                    <MainViewTitle
+                        name={this.state.name}
+                        brand={this.state.brand}
+                    />
 
-                    <div className='addToCartButtonContainer'>
-                        {
-                            this.state.inStock ?
-                                <button
-                                    disabled={Object.keys(this.state.selectedAttrs).length !== this.state.attrs.length}
-                                    className='addToCartButton'
-                                    onClick={() => this.context.addItem(this.state.itemId, this.props.item, this.state.selectedAttrs)}
-                                >
-                                    ADD TO CART
-                                </button>
-                                :
-                                <button disabled className='addToCartButton' title='🥲'>OUT OF STOCK</button>
-                        }
-                    </div>
+                    <MainViewAttrs
+                        attrs={this.state.attrs}
+                        onClick={this.setAttr}
+                    />
 
-                    <div className='productDescription noScrollBar'>
-                        <Interweave content={this.state.description} />
-                    </div>
+                    <MainViewPrice
+                        prices={this.state.prices}
+                    />
+
+                    <MainViewCartButton
+                        item={this.props.item}
+                        selectedAttrs={this.state.selectedAttrs}
+                        disabled={Object.keys(this.state.selectedAttrs).length !== this.state.attrs.length}
+                        inStock={this.state.inStock}
+                    />
+
+                    <MainViewDescription 
+                        description={this.state.description}
+                    />
 
                 </div>
             </div>
